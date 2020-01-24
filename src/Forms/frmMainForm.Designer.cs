@@ -89,6 +89,7 @@
             // 
             this.txtNewFormat.Location = new System.Drawing.Point(152, 108);
             this.txtNewFormat.Name = "txtNewFormat";
+            this.txtNewFormat.ReadOnly = true;
             this.txtNewFormat.Size = new System.Drawing.Size(145, 20);
             this.txtNewFormat.TabIndex = 11;
             this.txtNewFormat.Text = "yyyy-MM-dd__HH-mm";
