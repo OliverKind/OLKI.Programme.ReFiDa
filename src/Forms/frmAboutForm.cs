@@ -1,7 +1,7 @@
 ﻿/*
- * QBC- QuickBackupCreator
+ * ReFiDa - QuickBackupCreator
  * 
- * Copyright:   Oliver Kind - 2019
+ * Copyright:   Oliver Kind - 2020
  * License:     LGPL
  * 
  * Desctiption:
@@ -37,7 +37,7 @@ namespace OLKI.Programme.ReFiDa
         /// <summary>
         /// Specifies the name of the application version
         /// </summary>
-        private const string VERSION_NAME = "Screw";
+        private const string VERSION_NAME = "";
         #endregion
 
         #region Properties

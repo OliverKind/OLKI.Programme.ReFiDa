@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.chkCheckDouble = new System.Windows.Forms.CheckBox();
@@ -54,11 +53,9 @@
             this.btnDirectoryBrowse = new System.Windows.Forms.Button();
             this.txtDirectoryPath = new System.Windows.Forms.TextBox();
             this.grbPrepare = new System.Windows.Forms.GroupBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.grbFiles.SuspendLayout();
             this.grbProceed.SuspendLayout();
             this.grbPrepare.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // columnHeader4
@@ -320,10 +317,6 @@
             this.grbPrepare.TabStop = false;
             this.grbPrepare.Text = "Ordner und Optionen wählen";
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,7 +337,6 @@
             this.grbProceed.PerformLayout();
             this.grbPrepare.ResumeLayout(false);
             this.grbPrepare.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,7 +367,5 @@
         private System.Windows.Forms.Button btnDirectoryBrowse;
         private System.Windows.Forms.TextBox txtDirectoryPath;
         private System.Windows.Forms.GroupBox grbPrepare;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
-

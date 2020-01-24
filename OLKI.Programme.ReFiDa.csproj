@@ -49,6 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="libs\OLKI.Tools.CommonTools\clsConverter.cs" />
+    <Compile Include="libs\OLKI.Tools.CommonTools\DirectroyAndFile\clsDirectory.cs" />
+    <Compile Include="libs\OLKI.Tools.CommonTools\DirectroyAndFile\clsDirectory.Stringtable.Designer.cs">
+      <DependentUpon>clsDirectory.Stringtable.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="libs\OLKI.Tools.CommonTools\DirectroyAndFile\clsPath.cs" />
     <Compile Include="src\clsFileCheck.cs" />
     <Compile Include="src\clsFileHandling.cs" />
     <Compile Include="src\Forms\frmAboutForm.cs">
@@ -70,6 +78,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="libs\OLKI.Tools.CommonTools\DirectroyAndFile\clsDirectory.Stringtable.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>clsDirectory.Stringtable.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -109,6 +121,7 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="Changelog.txt" />
+    <None Include="libs\OLKI.Tools.CommonTools\Info.txt" />
     <Content Include="licenses\CC4.0-License.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -118,12 +131,6 @@
     <Content Include="Program_Symbol.ico" />
     <Content Include="Properties\Icons\ProgamIcons\program_symbol\Program_Symbol.ico" />
     <Content Include="Properties\Icons\ProgamIcons\program_symbol\ProgSym_256.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\OLKI.Tools\CommonTools\repository\OLKI.Tools.CommonTools.csproj">
-      <Project>{eacf8cee-e449-4591-aaf1-ecdda827ad8a}</Project>
-      <Name>OLKI.Tools.CommonTools</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

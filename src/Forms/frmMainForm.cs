@@ -1,26 +1,53 @@
-﻿using OLKI.Programme.ReFiDa.src;
+﻿/*
+ * ReFiDa - QuickBackupCreator
+ * 
+ * Copyright:   Oliver Kind - 2020
+ * License:     LGPL
+ * 
+ * Desctiption:
+ * The MainForm of the application
+ * 
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the LGPL General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * LGPL General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not check the GitHub-Repository.
+ * 
+ * */
+
+using OLKI.Programme.ReFiDa.src;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OLKI.Programme.ReFiDa
 {
+    /// <summary>
+    /// The MainForm of the application
+    /// </summary>
     public partial class MainForm : Form
     {
+        #region Fields
+        /// <summary>
+        /// Class to handle files: tools, search and rename
+        /// </summary>
         private readonly FileHandling _fileHandling = new FileHandling();
+        #endregion
 
-
+        #region Methodes
         public MainForm()
         {
             InitializeComponent();
-            //this.lsvFiles.Items.AddRange()
         }
 
         #region Form events
@@ -49,7 +76,7 @@ namespace OLKI.Programme.ReFiDa
             try
             {
                 this.Enabled = false;
-                List<FileInfo> FileList = this._fileHandling.GetFilesToConvert(new System.IO.DirectoryInfo(this.txtDirectoryPath.Text), this.chkSubDirectory.Checked, this.chkCheckDouble.Checked, (this.chkStart.Checked && this.chkStart8.Checked), (this.chkStart.Checked && this.chkStart12.Checked), (this.chkEnd.Checked && this.chkEnd8.Checked), (this.chkEnd.Checked && this.chkEnd12.Checked));
+                List<FileInfo> FileList = this._fileHandling.GetFilesToReformat(new System.IO.DirectoryInfo(this.txtDirectoryPath.Text), this.chkSubDirectory.Checked, this.chkCheckDouble.Checked, (this.chkStart.Checked && this.chkStart8.Checked), (this.chkStart.Checked && this.chkStart12.Checked), (this.chkEnd.Checked && this.chkEnd8.Checked), (this.chkEnd.Checked && this.chkEnd12.Checked));
 
                 // List files
                 this.lsvFiles.Items.Clear();
@@ -86,7 +113,7 @@ namespace OLKI.Programme.ReFiDa
                 this.Enabled = false;
 
                 FileInfo File = null;
-                string FileName = string.Empty;
+                string PureFileName = string.Empty;
 
                 for (int i = 0; i < this.lsvFiles.Items.Count; i++)
                 {
@@ -97,25 +124,25 @@ namespace OLKI.Programme.ReFiDa
                     if (this.lsvFiles.Items[i].Checked)
                     {
                         File = (FileInfo)this.lsvFiles.Items[i].Tag;
-                        FileName = FileHandling.GetFileNameWithoudExtension(File);
+                        PureFileName = FileHandling.GetPureFileName(File);
 
                         // Convert Datum start
-                        if (this.chkStart12.Checked && FileCheck.FilterStartWith(FileName, 12))
+                        if (this.chkStart12.Checked && FileCheck.FilterStartWithDigits(PureFileName, 12))
                         {
-                            this._fileHandling.ConvertSrartWith(File, FileName, 12, this.txtNewFormat.Text, this.chkSimulateRenaming.Checked, this.lsvFiles.Items[i]);
+                            this._fileHandling.ReformatFileNameStartWithNumber(File, PureFileName, 12, this.txtNewFormat.Text, this.chkSimulateRenaming.Checked, this.lsvFiles.Items[i]);
                         }
-                        else if (this.chkStart8.Checked && FileCheck.FilterStartWith(FileName, 8))
+                        else if (this.chkStart8.Checked && FileCheck.FilterStartWithDigits(PureFileName, 8))
                         {
-                            this._fileHandling.ConvertSrartWith(File, FileName, 8, this.txtNewFormat.Text, this.chkSimulateRenaming.Checked, this.lsvFiles.Items[i]);
+                            this._fileHandling.ReformatFileNameStartWithNumber(File, PureFileName, 8, this.txtNewFormat.Text, this.chkSimulateRenaming.Checked, this.lsvFiles.Items[i]);
                         }
                         // Convert Datum end
-                        else if (this.chkEnd12.Checked && FileCheck.FilterEndWith(FileName, 12))
+                        else if (this.chkEnd12.Checked && FileCheck.FilterEndWithDigits(PureFileName, 12))
                         {
-                            this._fileHandling.ConvertEndWith(File, FileName, 12, this.txtNewFormat.Text, this.chkSimulateRenaming.Checked, this.lsvFiles.Items[i]);
+                            this._fileHandling.ReformatFileNameEndWithNumber(File, PureFileName, 12, this.txtNewFormat.Text, this.chkSimulateRenaming.Checked, this.lsvFiles.Items[i]);
                         }
-                        else if (this.chkEnd8.Checked && FileCheck.FilterEndWith(FileName, 8))
+                        else if (this.chkEnd8.Checked && FileCheck.FilterEndWithDigits(PureFileName, 8))
                         {
-                            this._fileHandling.ConvertEndWith(File, FileName, 8, this.txtNewFormat.Text, this.chkSimulateRenaming.Checked, this.lsvFiles.Items[i]);
+                            this._fileHandling.ReformatFileNameEndWithNumber(File, PureFileName, 8, this.txtNewFormat.Text, this.chkSimulateRenaming.Checked, this.lsvFiles.Items[i]);
                         }
                         else
                         {
@@ -156,6 +183,7 @@ namespace OLKI.Programme.ReFiDa
         {
             System.Diagnostics.Process.Start("explorer.exe", "/e,/select," + ((FileInfo)this.lsvFiles.SelectedItems[0].Tag).FullName);
         }
+        #endregion
         #endregion
     }
 }

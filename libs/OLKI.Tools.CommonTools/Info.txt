@@ -1,0 +1,11 @@
+﻿Extracted form:
+	OLKI.Tools.CommonTools
+Version:
+	6.0.0.14
+
+Notes:
+	- Path modifications
+	- Not used functions removed
+
+Reason:
+	An easy way to provide a stand alone version of the main application
