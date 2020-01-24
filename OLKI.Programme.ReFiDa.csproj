@@ -57,6 +57,11 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="libs\OLKI.Tools.CommonTools\DirectroyAndFile\clsPath.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="src\clsFileCheck.cs" />
     <Compile Include="src\clsFileHandling.cs" />
     <Compile Include="src\Forms\frmAboutForm.cs">
@@ -64,6 +69,12 @@
     </Compile>
     <Compile Include="src\Forms\frmAboutForm.designer.cs">
       <DependentUpon>frmAboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\frmLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="src\Forms\frmLicense.designer.cs">
+      <DependentUpon>frmLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Forms\frmMainForm.cs">
       <SubType>Form</SubType>
@@ -84,16 +95,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="src\Forms\frmAboutForm.resx">
       <DependentUpon>frmAboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\frmLicense.resx">
+      <DependentUpon>frmLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
@@ -122,12 +131,8 @@
     <Content Include=".gitignore" />
     <Content Include="Changelog.txt" />
     <None Include="libs\OLKI.Tools.CommonTools\Info.txt" />
-    <Content Include="licenses\CC4.0-License.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="licenses\LGPL-License.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="licenses\CC4.0-License.txt" />
+    <Content Include="licenses\LGPL-License.txt" />
     <Content Include="Program_Symbol.ico" />
     <Content Include="Properties\Icons\ProgamIcons\program_symbol\Program_Symbol.ico" />
     <Content Include="Properties\Icons\ProgamIcons\program_symbol\ProgSym_256.png" />

@@ -59,5 +59,44 @@ namespace OLKI.Programme.ReFiDa.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Attribution 4.0 International
+        ///
+        ///=======================================================================
+        ///
+        ///Creative Commons Corporation (&quot;Creative Commons&quot;) is not a law firm and
+        ///does not provide legal services or legal advice. Distribution of
+        ///Creative Commons public licenses does not create a lawyer-client or
+        ///other relationship. Creative Commons makes its licenses and related
+        ///information available on an &quot;as-is&quot; basis. Creative Commons gives no
+        ///warranties regarding its licenses, any material licensed  [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string CC4_0_License {
+            get {
+                return ResourceManager.GetString("CC4_0_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die                    GNU LESSER GENERAL PUBLIC LICENSE
+        ///                       Version 3, 29 June 2007
+        ///
+        /// Copyright (C) 2007 Free Software Foundation, Inc. &lt;https://fsf.org/&gt;
+        /// Everyone is permitted to copy and distribute verbatim copies
+        /// of this license document, but changing it is not allowed.
+        ///
+        ///
+        ///  This version of the GNU Lesser General Public License incorporates
+        ///the terms and conditions of version 3 of the GNU General Public
+        ///License, supplemented by the additional permissions listed below.
+        ///
+        ///  0. A [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string LGPL_License {
+            get {
+                return ResourceManager.GetString("LGPL_License", resourceCulture);
+            }
+        }
     }
 }

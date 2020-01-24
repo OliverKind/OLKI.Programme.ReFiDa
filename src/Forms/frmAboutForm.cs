@@ -151,7 +151,8 @@ namespace OLKI.Programme.ReFiDa
         #region Form events
         private void btnGoToLicenses_Click(object sender, EventArgs e)
         {
-            OLKI.Tools.CommonTools.DirectoryAndFile.Directory.Open(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\Licenses\", false);
+            License LicenseForm = new License();
+            LicenseForm.ShowDialog();
         }
         #endregion
     }
