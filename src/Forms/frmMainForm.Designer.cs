@@ -292,7 +292,6 @@
             this.txtDirectoryPath.Name = "txtDirectoryPath";
             this.txtDirectoryPath.Size = new System.Drawing.Size(403, 20);
             this.txtDirectoryPath.TabIndex = 0;
-            this.txtDirectoryPath.Text = "C:\\Users\\00grigri\\Desktop\\Neuer Ordner";
             // 
             // grbPrepare
             // 
