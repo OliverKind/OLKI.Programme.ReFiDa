@@ -7,7 +7,7 @@
     <ProjectGuid>{C1E9077A-AB41-4A2E-B553-A5EA1E10F611}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>OLKI.Programme.ReFiDa</RootNamespace>
-    <AssemblyName>OLKI.Programme.ReFiDa</AssemblyName>
+    <AssemblyName>ReFiDa</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
