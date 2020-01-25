@@ -12,5 +12,5 @@ All notable changes to this project will be documented in this file.
 ### Fixed
 - N/A
 
-## [1.0.0.1] - 2019-12-26
+## [1.0.0.1] - 2020-01-25
 ### Initial release
