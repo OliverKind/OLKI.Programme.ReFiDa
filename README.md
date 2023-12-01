@@ -8,27 +8,25 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* .NET Framework 4.7.2 or higher
+* .NET Framework 4.8 or higher
 
 > To compile the source code you need also the following repositories
-> * [OLKI.Tools.CommonTools](https://github.com/OliverKind/OLKI.Tools.CommonTools)
-> * [OLKI.Widgets](https://github.com/OliverKind/OLKI.Widgets)
+> * [OLKI.Toolbox](https://github.com/OliverKind/OLKI.Toolbox)
 
 ### Installing
 
 You can download the source code or use a installer of the last release, if you only want to run the application. The inital autor will provide binaris of this work irregular at his homepage.
 
-> Download source code on [GitHub](https://github.com/OliverKind/OLKI.Programme.ReFiDs/archive/master.zip)
+> Download source code on [GitHub](https://github.com/OliverKind/OLKI.Programme.QuBC/archive/master.zip)
 > You also need to download the additional required repositories.
 
-> Download setup binary by inital autor [Oliver Kind](https://oliver-kind.de/index.php?NId=58)
+> Download setup binary by inital autor [Oliver Kind](https://oliver-kind.de/index.php?NId=33)
 
 ## Usage
 
 Update the refereces to the additional required repositories
 ```C#
-OLKI.Tools.CommonTools
-OLKI.Widgets
+OLKI.Toolbox
 ```
 
 ## Contributing
