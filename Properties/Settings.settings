@@ -1,7 +1,48 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OLKI.Programme.ReFiDa.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="AppUpdate_CheckAtStartUp" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SearchDate_Source" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="InstantRename" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="QuitAfterRename" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="FileSourceSelectPath" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FileSourceDirectoryPath" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FileSourceDirectorySub" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CheckForAlreadyInTargetFormat" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="SearchDate_List" Roaming="true" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy@HH-mm-ss","Position":1,"Seperator":" - "}&lt;/string&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy HH-mm-ss","Position":1,"Seperator":" - "}&lt;/string&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy@HH-mm","Position":1,"Seperator":" - "}&lt;/string&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy HH-mm","Position":1,"Seperator":" - "}&lt;/string&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy","Position":1,"Seperator":" - "}&lt;/string&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy@HH-mm-ss","Position":0,"Seperator":" - "}&lt;/string&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy HH-mm-ss","Position":0,"Seperator":" - "}&lt;/string&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy@HH-mm","Position":0,"Seperator":" - "}&lt;/string&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy HH-mm","Position":0,"Seperator":" - "}&lt;/string&gt;
+  &lt;string&gt;{"Date":"dd-MM-yyyy","Position":0,"Seperator":" - "}&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
+    <Setting Name="NewDate_Format" Roaming="true" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{"Date":"yyyy-MM-dd-@HH-mm-ss","Position":1,"Seperator":" - "}</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

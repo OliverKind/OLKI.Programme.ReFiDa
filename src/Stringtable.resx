@@ -119,34 +119,36 @@
   </resheader>
   <data name="0x0001" xml:space="preserve">
     <value>Ordner mit Dateien zum umbennen auswählen.</value>
-    <comment>OLKI.Programme.ConDate.MainForm.btnDirectoryBrowse_Click:FolderBrowser.Description</comment>
   </data>
   <data name="0x0002c" xml:space="preserve">
     <value>Fehler beim Suchen!</value>
-    <comment>OLKI.Programme.ReFiDa.MainForm.btnDirectoryListFiles_Click:Exception.Caption</comment>
   </data>
   <data name="0x0002m" xml:space="preserve">
     <value>Beim Suchen nach zu konvertierenden Dateien ist ein Fehler aufgetreten.
 
 {0}</value>
-    <comment>OLKI.Programme.ReFiDa.MainForm.btnDirectoryListFiles_Click:Exception.Message</comment>
   </data>
   <data name="0x0003c" xml:space="preserve">
     <value>Fehler beim Umbennen!</value>
-    <comment>OLKI.Programme.ReFiDa.MainForm.btnStartConvert_Click:Exception.Caption</comment>
   </data>
   <data name="0x0003m" xml:space="preserve">
     <value>Beim Umbennen der Dateien ist ein Fehler aufgetreten.
 
 {0}</value>
-    <comment>OLKI.Programme.ReFiDa.MainForm.btnStartConvert_Click:Exception.Message</comment>
   </data>
-  <data name="0x0004" xml:space="preserve">
-    <value>--NICHT ERKANNT--</value>
-    <comment>OLKI.Programme.ReFiDa.MainForm.btnStartConvert_Click:NoMatch</comment>
+  <data name="0x0005a" xml:space="preserve">
+    <value>Dateiname{1}{0}.Endung</value>
   </data>
-  <data name="0x0005" xml:space="preserve">
-    <value>--Simuliert--</value>
-    <comment>OLKI.Programme.ReFiDa.MainForm.btnStartConvert_Click:Simulated</comment>
+  <data name="0x0005b" xml:space="preserve">
+    <value>{0}{1}Dateiname.Endung</value>
+  </data>
+  <data name="0x0006" xml:space="preserve">
+    <value>&lt;Keine Formatierung&gt;</value>
+  </data>
+  <data name="0x0007a" xml:space="preserve">
+    <value> . . . {1}{0}....</value>
+  </data>
+  <data name="0x0007b" xml:space="preserve">
+    <value>{0}{1} . . . ....</value>
   </data>
 </root>

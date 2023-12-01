@@ -61,55 +61,6 @@ namespace OLKI.Programme.ReFiDa.src {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Ordner mit Dateien zum umbennen auswählen. ähnelt.
-        /// </summary>
-        internal static string _0x0001 {
-            get {
-                return ResourceManager.GetString("0x0001", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Suchen! ähnelt.
-        /// </summary>
-        internal static string _0x0002c {
-            get {
-                return ResourceManager.GetString("0x0002c", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Beim Suchen nach zu konvertierenden Dateien ist ein Fehler aufgetreten.
-        ///
-        ///{0} ähnelt.
-        /// </summary>
-        internal static string _0x0002m {
-            get {
-                return ResourceManager.GetString("0x0002m", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Umbennen! ähnelt.
-        /// </summary>
-        internal static string _0x0003c {
-            get {
-                return ResourceManager.GetString("0x0003c", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Beim Umbennen der Dateien ist ein Fehler aufgetreten.
-        ///
-        ///{0} ähnelt.
-        /// </summary>
-        internal static string _0x0003m {
-            get {
-                return ResourceManager.GetString("0x0003m", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Dateiname{1}{0}.Endung ähnelt.
         /// </summary>
         internal static string _0x0005a {
@@ -137,7 +88,7 @@ namespace OLKI.Programme.ReFiDa.src {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  . . . {1}{0}.... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die . . . {1}{0}.... ähnelt.
         /// </summary>
         internal static string _0x0007a {
             get {
@@ -146,7 +97,7 @@ namespace OLKI.Programme.ReFiDa.src {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die {0}{1} . . . .... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die {0}{1} . . .... ähnelt.
         /// </summary>
         internal static string _0x0007b {
             get {

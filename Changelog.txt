@@ -1,16 +1,7 @@
-# Change Log
-All notable changes to this project will be documented in this file.
-
-
-## [Unreleased]
-### Added
-- N/A
-
+# ReFiDa - Reformating File names that contains a Date
+## [2.0.0.2] - 2023-12-01
 ### Changed
-- N/A
-
-### Fixed
-- N/A
+- Completely overhauled
 
 ## [1.0.0.1] - 2020-01-25
 ### Initial release

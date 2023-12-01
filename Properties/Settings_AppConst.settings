@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OLKI.Programme.ReFiDa.Properties" GeneratedClassName="Settings_AppConst">
+  <Profiles />
+  <Settings>
+    <Setting Name="AppUpdate_ChangeLog" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Changelog.txt</Value>
+    </Setting>
+    <Setting Name="AppUpdate_Name" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">OLKI.Programme.ReFiDa</Value>
+    </Setting>
+    <Setting Name="AppUpdate_Owner" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">OliverKind</Value>
+    </Setting>
+    <Setting Name="AppUpdate_SetupSearchPattern" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ReFiDa__v{0}__Setup.exe</Value>
+    </Setting>
+    <Setting Name="DefaultDate_Format" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DefaultDate_Position" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="DefaultDate_Seperatur" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="FormatColor_ToRename" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">192, 192, 255</Value>
+    </Setting>
+    <Setting Name="FormatColor_Renamed" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">192, 255, 192</Value>
+    </Setting>
+    <Setting Name="FormatColor_Exception" Type="System.Drawing.Color" Scope="Application">
+      <Value Profile="(Default)">255, 192, 192</Value>
+    </Setting>
+    <Setting Name="TempDirectoryName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">RaMaDe\</Value>
+    </Setting>
+    <Setting Name="FormatHelpLink" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://learn.microsoft.com/de-de/dotnet/standard/base-types/custom-date-and-time-format-strings</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

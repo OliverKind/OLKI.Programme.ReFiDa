@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>OLKI.Programme.ReFiDa</RootNamespace>
     <AssemblyName>ReFiDa</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,51 +37,58 @@
     <ApplicationIcon>Program_Symbol.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="libs\OLKI.Tools.CommonTools\clsConverter.cs" />
-    <Compile Include="libs\OLKI.Tools.CommonTools\DirectroyAndFile\clsDirectory.cs" />
-    <Compile Include="libs\OLKI.Tools.CommonTools\DirectroyAndFile\clsDirectory.Stringtable.Designer.cs">
-      <DependentUpon>clsDirectory.Stringtable.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="libs\OLKI.Tools.CommonTools\DirectroyAndFile\clsPath.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="src\clsFileCheck.cs" />
-    <Compile Include="src\clsFileHandling.cs" />
-    <Compile Include="src\Forms\frmAboutForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Properties\Settings_AppConst.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings_AppConst.settings</DependentUpon>
     </Compile>
-    <Compile Include="src\Forms\frmAboutForm.designer.cs">
-      <DependentUpon>frmAboutForm.cs</DependentUpon>
+    <Compile Include="Properties\Settings_AppVar.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings_AppVar.settings</DependentUpon>
     </Compile>
-    <Compile Include="src\Forms\frmLicense.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="src\Forms\frmLicense.designer.cs">
-      <DependentUpon>frmLicense.cs</DependentUpon>
-    </Compile>
+    <Compile Include="src\clsDateFormatProvider.cs" />
+    <Compile Include="src\clsFileLoader.cs" />
+    <Compile Include="src\clsSearchDate.cs" />
+    <Compile Include="src\clsRenameItem.cs" />
     <Compile Include="src\Forms\frmMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="src\Forms\frmMainForm.Designer.cs">
       <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="src\Forms\uscDateFormatgEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="src\Forms\uscDateFormatgEditor.Designer.cs">
+      <DependentUpon>uscDateFormatgEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,29 +97,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Stringtable.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="libs\OLKI.Tools.CommonTools\DirectroyAndFile\clsDirectory.Stringtable.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>clsDirectory.Stringtable.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Forms\frmAboutForm.resx">
-      <DependentUpon>frmAboutForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="src\Forms\frmLicense.resx">
-      <DependentUpon>frmLicense.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="src\Forms\frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="src\Forms\uscDateFormatgEditor.resx">
+      <DependentUpon>uscDateFormatgEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Stringtable.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Stringtable.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="CONTRIBUTING.md" />
+    <None Include="doc\Information.rtf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="installation\setup__ReFiDa.nsi" />
     <None Include="LICENSE" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -122,6 +127,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Properties\Settings_AppConst.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings_AppConst.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings_AppVar.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings_AppVar.Designer.cs</LastGenOutput>
+    </None>
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
@@ -129,13 +142,32 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="Changelog.txt" />
-    <None Include="libs\OLKI.Tools.CommonTools\Info.txt" />
+    <Content Include="Changelog.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Icons\112_RefreshArrow_Blue_16x16_72.png" />
+    <Content Include="doc\ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icons\Browse.png" />
+    <None Include="Resources\Icons\Delete.png" />
+    <None Include="Resources\Icons\ListFilesRefresh.png" />
+    <None Include="Resources\Icons\FilesRename.png" />
+    <None Include="Resources\Icons\FilesListRefresh.png" />
+    <Content Include="Resources\Icons\New.png" />
     <Content Include="licenses\CC4.0-License.txt" />
     <Content Include="licenses\LGPL-License.txt" />
     <Content Include="Program_Symbol.ico" />
-    <Content Include="Properties\Icons\ProgamIcons\program_symbol\Program_Symbol.ico" />
-    <Content Include="Properties\Icons\ProgamIcons\program_symbol\ProgSym_256.png" />
+    <Content Include="Resources\ProgamIcons\program_symbol\Program_Symbol.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\ProgamIcons\program_symbol\ProgSym_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\OLKI.Toolbox\repository\OLKI.Toolbox.csproj">
+      <Project>{577d63e4-bd67-4316-9442-81b67f4b9f4a}</Project>
+      <Name>OLKI.Toolbox</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

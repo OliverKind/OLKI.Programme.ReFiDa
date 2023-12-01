@@ -117,62 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CheckAccess_Exceptionn_Caoption" xml:space="preserve">
-    <value>Zugriff auf Ordner</value>
+  <data name="0x0005a" xml:space="preserve">
+    <value>Dateiname{1}{0}.Endung</value>
   </data>
-  <data name="CheckAccess_Exception_Message" xml:space="preserve">
-    <value>Der Zugriff auf den Ordner "{0}" wurde verweigert.
-
-Meldung:
-{1}</value>
+  <data name="0x0005b" xml:space="preserve">
+    <value>{0}{1}Dateiname.Endung</value>
   </data>
-  <data name="Copy_Exceptionn_Caoption" xml:space="preserve">
-    <value>Ordner kopieren</value>
+  <data name="0x0006" xml:space="preserve">
+    <value>&lt;Keine Formatierung&gt;</value>
   </data>
-  <data name="Copy_Exception_Message" xml:space="preserve">
-    <value>Beim Kopieren des Ordners "{0}" nach "{1}" ist ein Fehler aufgetreten.
-
-Fehler:
-{2}</value>
+  <data name="0x0007a" xml:space="preserve">
+    <value>. . . {1}{0}....</value>
   </data>
-  <data name="Create_Exception_Caoption" xml:space="preserve">
-    <value>Ordner erstellen</value>
-  </data>
-  <data name="Create_Exception_Message" xml:space="preserve">
-    <value>Der Ordner "{0}" konnte nicht erstellt werden.
-
-Fehler:
-{1}</value>
-  </data>
-  <data name="Delete_Confirm_Caoption" xml:space="preserve">
-    <value>Ordner löschen</value>
-  </data>
-  <data name="Delete_Confirm_Message" xml:space="preserve">
-    <value>Sind Sie sich sicher das Sie den Ordner "{0}" tatsächlich löschen möchten?</value>
-  </data>
-  <data name="Delete_Exceptionn_Caoption" xml:space="preserve">
-    <value>Ordner löschen</value>
-  </data>
-  <data name="Delete_Exception_Message" xml:space="preserve">
-    <value>Der Ordner "{0}" konnte nicht gelöscht werden.
-
-Fehler:
-{1}</value>
-  </data>
-  <data name="Open_AskCreate_Message" xml:space="preserve">
-    <value>Der Ordner "{0}" existiert nicht.
-Möchten Sie ihn jetzt anlegen?</value>
-  </data>
-  <data name="Open_Exceptionn_Caoption" xml:space="preserve">
-    <value>Ordner öffnen</value>
-  </data>
-  <data name="Open_ExceptionOpen_AskCreate_Caoption" xml:space="preserve">
-    <value>Ordner öffnen</value>
-  </data>
-  <data name="Open_Exception_Message" xml:space="preserve">
-    <value>Der Ordner "{0}" konnte nicht geöffnet und gelesen werden.
-
-Fehler:
-{1}</value>
+  <data name="0x0007b" xml:space="preserve">
+    <value>{0}{1} . . ....</value>
   </data>
 </root>

@@ -19,7 +19,7 @@ namespace OLKI.Programme.ReFiDa.Properties {
     // -Klasse über ein Tool wie ResGen oder Visual Studio automatisch generiert.
     // Um einen Member hinzuzufügen oder zu entfernen, bearbeiten Sie die .ResX-Datei und führen dann ResGen
     // mit der /str-Option erneut aus, oder Sie erstellen Ihr VS-Projekt neu.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,6 +61,26 @@ namespace OLKI.Programme.ReFiDa.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _112_RefreshArrow_Blue_16x16_72 {
+            get {
+                object obj = ResourceManager.GetObject("_112_RefreshArrow_Blue_16x16_72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Browse {
+            get {
+                object obj = ResourceManager.GetObject("Browse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Attribution 4.0 International
         ///
         ///=======================================================================
@@ -75,6 +95,47 @@ namespace OLKI.Programme.ReFiDa.Properties {
         internal static string CC4_0_License {
             get {
                 return ResourceManager.GetString("CC4_0_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die // Entwickler:
+        ///Progammierung: Oliver Kind
+        ///Design: Oliver Kind ähnelt.
+        /// </summary>
+        internal static string Credits {
+            get {
+                return ResourceManager.GetString("Credits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Delete {
+            get {
+                object obj = ResourceManager.GetObject("Delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FilesListRefresh {
+            get {
+                object obj = ResourceManager.GetObject("FilesListRefresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FilesRename {
+            get {
+                object obj = ResourceManager.GetObject("FilesRename", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -96,6 +157,26 @@ namespace OLKI.Programme.ReFiDa.Properties {
         internal static string LGPL_License {
             get {
                 return ResourceManager.GetString("LGPL_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap New {
+            get {
+                object obj = ResourceManager.GetObject("New", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ProgSym_256 {
+            get {
+                object obj = ResourceManager.GetObject("ProgSym_256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
