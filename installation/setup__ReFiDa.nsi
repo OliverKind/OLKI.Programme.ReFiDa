@@ -1,4 +1,4 @@
-;NSIS Installer for ReFiDa 2.0.0.2
+;NSIS Installer for ReFiDa 2.0.1.3
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'ReFiDa'
-  !define Version          '2.0.0.2'
+  !define Version          '2.0.1.3'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Progamm zum neu formatieren von Daiteien die mit einem Datum in reinem Zahlenformat beginnen oder enden oder zum Auslesen des Datums aus einer Datei.'
   !define Copyright        '2023 - Oliver Kind'

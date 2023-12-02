@@ -1,4 +1,11 @@
 # ReFiDa - Reformating File names that contains a Date
+## [2.0.1.3] - 2023-12-02
+### Added
+- Application Shortcut to "Send to"
+
+### Fixed
+- Exit Application after rename not working
+
 ## [2.0.0.2] - 2023-12-01
 ### Changed
 - Completely overhauled
