@@ -1,24 +1,52 @@
-﻿using OLKI.Programme.ReFiDa.Properties;
+﻿/*
+ * ReFiDa - QuickBackupCreator
+ * 
+ * Copyright:   Oliver Kind - 2023
+ * License:     LGPL
+ * 
+ * Desctiption:
+ * Provide Controles to edit the Date format
+ * 
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the LGPL General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * This program is distributed WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * LGPL General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not check the GitHub-Repository.
+ * 
+ * */
+
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OLKI.Programme.ReFiDa.src.Forms
 {
+    /// <summary>
+    /// Provide Controles to edit the Date format
+    /// </summary>
     public partial class uscDateFormatgEditor : UserControl
     {
         #region Events
+        /// <summary>
+        /// Raised if the format was changed
+        /// </summary>
         public event EventHandler Changed;
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Date format settings
+        /// </summary>
         private string _dateFormat;
+        /// <summary>
+        /// Get or set the Date format setting
+        /// </summary>
         public string DateFormat
         {
             get
@@ -33,7 +61,13 @@ namespace OLKI.Programme.ReFiDa.src.Forms
             }
         }
 
+        /// <summary>
+        /// The Position of the date
+        /// </summary>
         private DateFormatProvider.DatePositionIndicator _datePosition;
+        /// <summary>
+        /// Get or set the Position of the date
+        /// </summary>
         public DateFormatProvider.DatePositionIndicator DatePosition
         {
             get
@@ -58,7 +92,13 @@ namespace OLKI.Programme.ReFiDa.src.Forms
             }
         }
 
+        /// <summary>
+        /// The seperator between date and original filename
+        /// </summary>
         private string _seperator;
+        /// <summary>
+        /// Get or set the seperator between date and original filename
+        /// </summary>
         public string Seperator
         {
             get
@@ -75,6 +115,9 @@ namespace OLKI.Programme.ReFiDa.src.Forms
         #endregion
 
         #region Methodes
+        /// <summary>
+        /// Inital a new Date Format Editr
+        /// </summary>
         public uscDateFormatgEditor()
         {
             InitializeComponent();
@@ -106,8 +149,8 @@ namespace OLKI.Programme.ReFiDa.src.Forms
 
         private void txtSeperatorAfter_TextChanged(object sender, EventArgs e)
         {
-           this.txtSeperatorBefore.Text = this.txtSeperatorAfter.Text;
-           this.Seperator = this.txtSeperatorAfter.Text;
+            this.txtSeperatorBefore.Text = this.txtSeperatorAfter.Text;
+            this.Seperator = this.txtSeperatorAfter.Text;
         }
 
         private void txtSeperatorBefore_EnabledChanged(object sender, EventArgs e)
