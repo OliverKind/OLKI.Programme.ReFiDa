@@ -176,10 +176,10 @@ namespace OLKI.Programme.ReFiDa
                 }
                 if (this.chkQuitAfterRename.Checked && !Exceptions)
                 {
-                    //this.Close();
-                    //Application.Exit();
-                    //Application.ExitThread();
-                    //Environment.Exit(0);
+                    this.Close();
+                    Application.Exit();
+                    Application.ExitThread();
+                    Environment.Exit(0);
                 }
             }
             catch (Exception ex)
