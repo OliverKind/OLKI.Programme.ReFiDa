@@ -134,10 +134,13 @@ Section ""
   File ".\..\bin\Release\Licenses\LGPL-License.txt"
   File ".\..\bin\Release\Licenses\MIT-License (CroweMan; 22.06.2010).txt"
   File ".\..\bin\Release\Licenses\MIT-License (octokit.net; 16.08.2017).txt"
-  
+
   ;Create Desktop shortcut
   CreateShortCut "$DESKTOP\${AppName}.lnk" "$INSTDIR\ReFiDa.exe" ""
-  
+
+  ;Create "Send To" shortcut
+  CreateShortCut "$SENDTO\${AppName} - Datum anhängen.lnk" "$INSTDIR\ReFiDa.exe" ""
+
   ;Create Starmenue Entry
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     ;Create shortcuts
