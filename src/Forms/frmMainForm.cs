@@ -186,6 +186,10 @@ namespace OLKI.Programme.ReFiDa
             }
             finally
             {
+                for (int i = 0; i < this.lsvFiles.Items.Count; i++)
+                {
+                    this.lsvFiles.Items[i].Selected = false;
+                }
                 Cursor.Current = Cursors.Default;
                 this.Enabled = true;
             }
