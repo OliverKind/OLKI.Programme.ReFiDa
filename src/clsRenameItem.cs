@@ -27,6 +27,7 @@ using System;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Windows.Forms;
 using static OLKI.Programme.ReFiDa.src.DateFormatProvider;
 
 namespace OLKI.Programme.ReFiDa.src
@@ -109,6 +110,12 @@ namespace OLKI.Programme.ReFiDa.src
         /// </summary>
         public string FilePureName { get; private set; } = string.Empty;
 
+
+        /// <summary>
+        /// Original Filename without extension and without date (if filename contains date)
+        /// </summary>
+        public string FilePureNameNoDate { get; private set; } = string.Empty;
+
         /// <summary>
         /// State of the renaming Item
         /// </summary>
@@ -142,6 +149,7 @@ namespace OLKI.Programme.ReFiDa.src
         {
             this.FileInfo = file;
             this.FilePureName = FileInfo.Name.Substring(0, FileInfo.Name.Length - FileInfo.Extension.Length);
+            this.FilePureNameNoDate = this.FilePureName;
         }
 
         /// <summary>
@@ -233,7 +241,7 @@ namespace OLKI.Programme.ReFiDa.src
                         string FilePureNameNoDate = this.FilePureName;
                         GetDateResult = SearchDate.GetFromFileName(this.FileInfo, this.FilePureName, out FilePureNameNoDate, fileInfoReamed: out FileInfoReamed, targetDateFormat: targetDateFormat, searchDateFormatList: searchDateFormatList, exception: out Exception);
                         this.State = this.UpdateState(GetDateResult, Exception);
-                        this.FilePureName = FilePureNameNoDate;
+                        this.FilePureNameNoDate = FilePureNameNoDate;
                         break;
                     case DateSearchMode.EMailOutlook:
                         GetDateResult = SearchDate.GetFromMsgFile(this.FileInfo, this.FilePureName, out FileInfoReamed, targetDateFormat, out Exception);
