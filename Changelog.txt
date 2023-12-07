@@ -1,4 +1,20 @@
 # ReFiDa - Reformating File names that contains a Date
+## [2.1.0.4] - 2023-12-07
+### Added
+- Option to select all renameable files after updateing file list
+- Update file list if search formats are edited
+- Update file list if files loadet at start up
+
+### Changed
+- Improced file name searching
+- Unselect all items after renaming
+- Default new date format
+
+### Fixed
+- SendTo link not deleted
+- Issue selecting alltext if format was changed at some conditions
+- Creation Date instead of filename Date
+
 ## [2.0.1.3] - 2023-12-02
 ### Added
 - Application Shortcut to "Send to"
