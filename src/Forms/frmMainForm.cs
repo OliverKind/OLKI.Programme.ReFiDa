@@ -538,6 +538,7 @@ namespace OLKI.Programme.ReFiDa
             this.lsvDateSearchFormats.SelectedItems[0].ToolTipText = SelectedDateFormat.Preview.FinalDummyFilename;
 
             this.SafeSearchList();
+            this.UpdateRenameItem();
         }
         #endregion
         #endregion
