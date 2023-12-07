@@ -159,7 +159,7 @@ namespace OLKI.Programme.ReFiDa.src
                         {
                             if (DateTime.TryParseExact(DateCandidat, searchDateFormatList[d].Preview.Format, CultureInfo.InvariantCulture, DateTimeStyles.None, out FoundDateValue))
                             {
-                                string FileRenamed = FileNameBuilder(filePureNameNoDate, fileInfo.Extension, fileInfo.CreationTime, targetDateFormat, out exception);
+                                string FileRenamed = FileNameBuilder(filePureNameNoDate, fileInfo.Extension, FoundDateValue, targetDateFormat, out exception);
                                 fileInfoReamed = new FileInfo(string.Format(@"{0}\{1}", new object[] { fileInfo.DirectoryName, FileRenamed }));
                                 return true;
                             }
