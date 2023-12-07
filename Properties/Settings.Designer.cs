@@ -154,7 +154,7 @@ namespace OLKI.Programme.ReFiDa.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("{\"Date\":\"yyyy-MM-dd-@HH-mm-ss\",\"Position\":1,\"Seperator\":\" - \"}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("{\"Date\":\"yyyy-MM-dd@HH-mm\",\"Position\":1,\"Seperator\":\" - \"}")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public string NewDate_Format {
             get {
