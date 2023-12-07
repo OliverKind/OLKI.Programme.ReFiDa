@@ -44,5 +44,8 @@
     <Setting Name="NewDate_Format" Roaming="true" Type="System.String" Scope="User">
       <Value Profile="(Default)">{"Date":"yyyy-MM-dd@HH-mm","Position":1,"Seperator":" - "}</Value>
     </Setting>
+    <Setting Name="SelectAllRenameableFiles" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

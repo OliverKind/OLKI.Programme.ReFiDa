@@ -96,7 +96,7 @@ namespace OLKI.Programme.ReFiDa
             this.chkFileSourceDirectorySub.Checked = Settings.Default.FileSourceDirectorySub;
             this.chkQuitAfterRename.Checked = Settings.Default.QuitAfterRename;
             this.chkInstantRename.Checked = Settings.Default.InstantRename;
-
+            this.chkSelectAllRenameableFiles.Checked = Settings.Default.SelectAllRenameableFiles;
 
             this._systemChanged = true;
             string[] DateFormatList = new string[Settings.Default.SearchDate_List.Count];
@@ -238,6 +238,15 @@ namespace OLKI.Programme.ReFiDa
             this.lsvFiles.Items[index].BackColor = RenameItem.StateColor;
             this.lsvFiles.Items[index].SubItems[1].Text = RenameItem.FileInfoReamed != null ? RenameItem.FileInfoReamed.Name : string.Empty;
             this.lsvFiles.Items[index].SubItems[3].Text = RenameItem.Exception != null ? RenameItem.Exception.Message : string.Empty;
+
+            if (this.chkSelectAllRenameableFiles.Checked && RenameItem.State == RenameItem.RenameState.ToRename)
+            {
+                this.lsvFiles.Items[index].Selected = true;
+            }
+            else
+            {
+                this.lsvFiles.Items[index].Selected = false;
+            }
         }
 
         #region Form events
@@ -385,6 +394,12 @@ namespace OLKI.Programme.ReFiDa
         private void chkQuitAfterRename_CheckedChanged(object sender, EventArgs e)
         {
             Settings.Default.QuitAfterRename = chkQuitAfterRename.Checked;
+            Settings.Default.Save();
+        }
+
+        private void chkSelectAllRenameableFiles_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.SelectAllRenameableFiles = chkSelectAllRenameableFiles.Checked;
             Settings.Default.Save();
         }
 

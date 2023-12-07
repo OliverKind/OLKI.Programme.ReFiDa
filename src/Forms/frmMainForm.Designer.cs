@@ -48,10 +48,8 @@
             this.txtFileSourceDirectoryPath = new System.Windows.Forms.TextBox();
             this.grbPrepare = new System.Windows.Forms.GroupBox();
             this.lblFormatHelp = new System.Windows.Forms.LinkLabel();
-            this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.txtFilenamePreview = new System.Windows.Forms.TextBox();
             this.grbDateSearchFormats = new System.Windows.Forms.GroupBox();
-            this.uscSearchDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.lsvDateSearchFormats = new OLKI.Toolbox.Widgets.SortListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDateSearchFormaRemove = new System.Windows.Forms.Button();
@@ -67,6 +65,9 @@
             this.btnFileSourceDirectoryRefresh = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblFileSourceDragAndDrop = new System.Windows.Forms.Label();
+            this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
+            this.uscSearchDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
+            this.chkSelectAllRenameableFiles = new System.Windows.Forms.CheckBox();
             this.grbFiles.SuspendLayout();
             this.grbExecute.SuspendLayout();
             this.grbPrepare.SuspendLayout();
@@ -88,6 +89,7 @@
             // 
             // grbFiles
             // 
+            this.grbFiles.Controls.Add(this.chkSelectAllRenameableFiles);
             this.grbFiles.Controls.Add(this.btnRefreshFileList);
             this.grbFiles.Controls.Add(this.chkCheckForAlreadyInTargetFormat);
             this.grbFiles.Controls.Add(this.lsvFiles);
@@ -137,7 +139,7 @@
             this.lsvFiles.Location = new System.Drawing.Point(6, 49);
             this.lsvFiles.Name = "lsvFiles";
             this.lsvFiles.ShowItemToolTips = true;
-            this.lsvFiles.Size = new System.Drawing.Size(737, 199);
+            this.lsvFiles.Size = new System.Drawing.Size(737, 176);
             this.lsvFiles.TabIndex = 2;
             this.lsvFiles.UseCompatibleStateImageBehavior = false;
             this.lsvFiles.View = System.Windows.Forms.View.Details;
@@ -286,17 +288,6 @@
             this.lblFormatHelp.Text = "Hilfe zur Formatierung";
             this.lblFormatHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFormatHelp_LinkClicked);
             // 
-            // uscNewDate
-            // 
-            this.uscNewDate.DateFormat = null;
-            this.uscNewDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
-            this.uscNewDate.Location = new System.Drawing.Point(6, 146);
-            this.uscNewDate.Name = "uscNewDate";
-            this.uscNewDate.Seperator = null;
-            this.uscNewDate.Size = new System.Drawing.Size(356, 20);
-            this.uscNewDate.TabIndex = 1;
-            this.uscNewDate.Changed += new System.EventHandler(this.uscNewDate_Changed);
-            // 
             // txtFilenamePreview
             // 
             this.txtFilenamePreview.Location = new System.Drawing.Point(6, 172);
@@ -318,17 +309,6 @@
             this.grbDateSearchFormats.TabStop = false;
             this.grbDateSearchFormats.Text = "Suchmuster und Suchreihenfolge";
             this.grbDateSearchFormats.EnabledChanged += new System.EventHandler(this.grbDateSearchFormats_EnabledChanged);
-            // 
-            // uscSearchDate
-            // 
-            this.uscSearchDate.DateFormat = null;
-            this.uscSearchDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
-            this.uscSearchDate.Location = new System.Drawing.Point(6, 81);
-            this.uscSearchDate.Name = "uscSearchDate";
-            this.uscSearchDate.Seperator = null;
-            this.uscSearchDate.Size = new System.Drawing.Size(363, 20);
-            this.uscSearchDate.TabIndex = 3;
-            this.uscSearchDate.Changed += new System.EventHandler(this.uscSearchDate_Changed);
             // 
             // lsvDateSearchFormats
             // 
@@ -515,6 +495,39 @@
             this.lblFileSourceDragAndDrop.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblFileSourceDragAndDrop_DragDrop);
             this.lblFileSourceDragAndDrop.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblFileSourceDragAndDrop_DragEnter);
             // 
+            // uscNewDate
+            // 
+            this.uscNewDate.DateFormat = null;
+            this.uscNewDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
+            this.uscNewDate.Location = new System.Drawing.Point(6, 146);
+            this.uscNewDate.Name = "uscNewDate";
+            this.uscNewDate.Seperator = null;
+            this.uscNewDate.Size = new System.Drawing.Size(356, 20);
+            this.uscNewDate.TabIndex = 1;
+            this.uscNewDate.Changed += new System.EventHandler(this.uscNewDate_Changed);
+            // 
+            // uscSearchDate
+            // 
+            this.uscSearchDate.DateFormat = null;
+            this.uscSearchDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
+            this.uscSearchDate.Location = new System.Drawing.Point(6, 81);
+            this.uscSearchDate.Name = "uscSearchDate";
+            this.uscSearchDate.Seperator = null;
+            this.uscSearchDate.Size = new System.Drawing.Size(363, 20);
+            this.uscSearchDate.TabIndex = 3;
+            this.uscSearchDate.Changed += new System.EventHandler(this.uscSearchDate_Changed);
+            // 
+            // chkSelectAllRenameableFiles
+            // 
+            this.chkSelectAllRenameableFiles.AutoSize = true;
+            this.chkSelectAllRenameableFiles.Location = new System.Drawing.Point(6, 231);
+            this.chkSelectAllRenameableFiles.Name = "chkSelectAllRenameableFiles";
+            this.chkSelectAllRenameableFiles.Size = new System.Drawing.Size(373, 17);
+            this.chkSelectAllRenameableFiles.TabIndex = 3;
+            this.chkSelectAllRenameableFiles.Text = "Nach dem aktualisieren der Liste alle umbenennbaren Dateien auswählen";
+            this.chkSelectAllRenameableFiles.UseVisualStyleBackColor = true;
+            this.chkSelectAllRenameableFiles.CheckedChanged += new System.EventHandler(this.chkSelectAllRenameableFiles_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -590,5 +603,6 @@
         private System.Windows.Forms.CheckBox chkCheckForAlreadyInTargetFormat;
         private System.Windows.Forms.Button btnRefreshFileList;
         private System.Windows.Forms.LinkLabel lblFormatHelp;
+        private System.Windows.Forms.CheckBox chkSelectAllRenameableFiles;
     }
 }
