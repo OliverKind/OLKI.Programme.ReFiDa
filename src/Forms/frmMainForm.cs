@@ -116,7 +116,6 @@ namespace OLKI.Programme.ReFiDa
                 NewListViewItem.ToolTipText = NewDateFormatProvider.Preview.FinalDummyFilename;
                 this.lsvDateSearchFormats.Items.Add(NewListViewItem);
             }
-            this._systemChanged = false;
 
             this.tabFileSource.SelectedIndex = Settings_AppVar.Default.SelectedTabPage;
             this.txtFileSourceSelectPath.Text = Settings.Default.FileSourceSelectPath;
@@ -126,10 +125,9 @@ namespace OLKI.Programme.ReFiDa
             this.uscNewDate.DateFormat = NewDateFormat.Format.Date;
             this.uscNewDate.DatePosition = NewDateFormat.Format.Position;
             this.uscNewDate.Seperator = NewDateFormat.Format.Seperator;
-            this.uscNewDate.Changed += new System.EventHandler(this.uscNewDate_Changed);
-            this.uscNewDate_Changed(this, new EventArgs());
+            this._systemChanged = false;
 
-            this.uscSearchDate.Changed += new System.EventHandler(this.uscSearchDate_Changed);
+            this.uscNewDate_Changed(this, new EventArgs());
             this.uscSearchDate_Changed(this, new EventArgs());
 
             this.lsvDateSearchFormats_SelectedIndexChanged(this, new EventArgs());
@@ -508,6 +506,8 @@ namespace OLKI.Programme.ReFiDa
 
         private void uscNewDate_Changed(object sender, EventArgs e)
         {
+            if (this._systemChanged) return;
+
             this._targetDateFormat.AutoUpdateLengthList = false;
             this._targetDateFormat.Format.Date = this.uscNewDate.DateFormat;
             this._targetDateFormat.Format.Position = this.uscNewDate.DatePosition;

@@ -30,12 +30,15 @@ namespace OLKI.Programme.ReFiDa.src.Forms
     /// <summary>
     /// Provide Controles to edit the Date format
     /// </summary>
+    [System.ComponentModel.DefaultEvent("Changed")]
     public partial class uscDateFormatgEditor : UserControl
     {
         #region Events
         /// <summary>
-        /// Raised if the format was changed
+        /// Occurs when the format or an other Option has been changed
         /// </summary>
+        [System.ComponentModel.Browsable(true)]
+        [System.ComponentModel.Description("Occurs when the format or an other Option has been changed.")]
         public event EventHandler Changed;
         #endregion
 

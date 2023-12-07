@@ -295,6 +295,7 @@
             this.uscNewDate.Seperator = null;
             this.uscNewDate.Size = new System.Drawing.Size(356, 20);
             this.uscNewDate.TabIndex = 1;
+            this.uscNewDate.Changed += new System.EventHandler(this.uscNewDate_Changed);
             // 
             // txtFilenamePreview
             // 
@@ -327,6 +328,7 @@
             this.uscSearchDate.Seperator = null;
             this.uscSearchDate.Size = new System.Drawing.Size(363, 20);
             this.uscSearchDate.TabIndex = 3;
+            this.uscSearchDate.Changed += new System.EventHandler(this.uscSearchDate_Changed);
             // 
             // lsvDateSearchFormats
             // 
