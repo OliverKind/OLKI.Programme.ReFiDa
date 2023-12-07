@@ -93,7 +93,7 @@
             this.txtDateFormat.TabIndex = 12;
             this.txtDateFormat.TextChanged += new System.EventHandler(this.txtDateFormat_TextChanged);
             // 
-            // uscDateFormatgEditor
+            // uscDateFormatEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,7 +102,7 @@
             this.Controls.Add(this.radDateBefore);
             this.Controls.Add(this.radDateAfter);
             this.Controls.Add(this.txtDateFormat);
-            this.Name = "uscDateFormatgEditor";
+            this.Name = "uscDateFormatEditor";
             this.Size = new System.Drawing.Size(500, 20);
             this.ResumeLayout(false);
             this.PerformLayout();
