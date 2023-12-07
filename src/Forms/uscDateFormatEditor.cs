@@ -166,6 +166,12 @@ namespace OLKI.Programme.ReFiDa.src.Forms
             this.txtSeperatorAfter.Text = this.txtSeperatorBefore.Text;
             this.Seperator = this.txtSeperatorBefore.Text;
         }
+
+        private void uscDateFormatEditor_EnabledChanged(object sender, EventArgs e)
+        {
+            this.txtDateFormat.SelectionStart = this.txtDateFormat.SelectionStart;
+            this.txtDateFormat.SelectionLength = 0;
+        }
         #endregion
     }
 }

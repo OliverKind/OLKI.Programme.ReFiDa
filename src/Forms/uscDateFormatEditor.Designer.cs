@@ -104,6 +104,7 @@
             this.Controls.Add(this.txtDateFormat);
             this.Name = "uscDateFormatEditor";
             this.Size = new System.Drawing.Size(500, 20);
+            this.EnabledChanged += new System.EventHandler(this.uscDateFormatEditor_EnabledChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
