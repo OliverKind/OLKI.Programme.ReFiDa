@@ -195,7 +195,10 @@ Section "Uninstall"
   ;Delete Starmenue
   !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
   RMDir /R "$SMPROGRAMS\$StartMenuFolder"
-
+  
+  ;Delete SendTo
+  CreateShortCut "$SENDTO\${AppName} - Datum anhängen.lnk" "$INSTDIR\ReFiDa.exe" ""
+  
   ;Delete registry
   DeleteRegKey HKCU "SOFTWARE\${Company}\${AppName}\InstallDir"
   DeleteRegKey HKCU "SOFTWARE\${Company}\${AppName}\SettingDir"
