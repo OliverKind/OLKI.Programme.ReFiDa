@@ -107,13 +107,7 @@ namespace OLKI.Programme.ReFiDa.src
         /// <summary>
         /// Original Filename without extension
         /// </summary>
-        public string FilePureName
-        {
-            get
-            {
-                return FileInfo.Name.Substring(0, FileInfo.Name.Length - FileInfo.Extension.Length);
-            }
-        }
+        public string FilePureName { get; private set; } = string.Empty;
 
         /// <summary>
         /// State of the renaming Item
@@ -147,6 +141,7 @@ namespace OLKI.Programme.ReFiDa.src
         public RenameItem(FileInfo file)
         {
             this.FileInfo = file;
+            this.FilePureName = FileInfo.Name.Substring(0, FileInfo.Name.Length - FileInfo.Extension.Length);
         }
 
         /// <summary>
@@ -235,8 +230,10 @@ namespace OLKI.Programme.ReFiDa.src
                         this.State = GetDateResult ? RenameState.ToRename : RenameState.Exception;
                         break;
                     case DateSearchMode.Filename:
-                        GetDateResult = SearchDate.GetFromFileName(this.FileInfo, this.FilePureName, out FileInfoReamed, targetDateFormat, searchDateFormatList, out Exception);
+                        string FilePureNameNoDate = this.FilePureName;
+                        GetDateResult = SearchDate.GetFromFileName(this.FileInfo, this.FilePureName, out FilePureNameNoDate, fileInfoReamed: out FileInfoReamed, targetDateFormat: targetDateFormat, searchDateFormatList: searchDateFormatList, exception: out Exception);
                         this.State = this.UpdateState(GetDateResult, Exception);
+                        this.FilePureName = FilePureNameNoDate;
                         break;
                     case DateSearchMode.EMailOutlook:
                         GetDateResult = SearchDate.GetFromMsgFile(this.FileInfo, this.FilePureName, out FileInfoReamed, targetDateFormat, out Exception);

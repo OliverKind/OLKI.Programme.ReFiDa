@@ -124,10 +124,11 @@ namespace OLKI.Programme.ReFiDa.src
         /// <param name="searchDateFormatList">List with search pattern, to search inside the Filename</param>
         /// <param name="exception">Exception while getting the new Filename</param>
         /// <returns>True if the new Filename was sucessfully created</returns>
-        public static bool GetFromFileName(FileInfo fileInfo, string filePureName, out FileInfo fileInfoReamed, DateFormatProvider targetDateFormat, DateFormatProvider[] searchDateFormatList, out Exception exception)
+        public static bool GetFromFileName(FileInfo fileInfo, string filePureName, out string filePureNameNoDate, out FileInfo fileInfoReamed, DateFormatProvider targetDateFormat, DateFormatProvider[] searchDateFormatList, out Exception exception)
         {
-            fileInfoReamed = null;
             exception = null;
+            fileInfoReamed = null;
+            filePureNameNoDate = string.Empty;
             string DateCandidat = string.Empty;
             string FileOnlyName = string.Empty;
             DatePositionIndicator DatePosition;
@@ -144,10 +145,12 @@ namespace OLKI.Programme.ReFiDa.src
                             case DatePositionIndicator.AfterFilename:
                                 DateCandidat = Substring(filePureName, filePureName.Length - searchDateFormatList[d].FormatLength[l], searchDateFormatList[d].FormatLength[l]);
                                 FileOnlyName = Substring(filePureName, 0, filePureName.Length - searchDateFormatList[d].FormatLength[l]);
+                                filePureNameNoDate = FileOnlyName;
                                 break;
                             case DatePositionIndicator.BeforeFilename:
                                 DateCandidat = Substring(filePureName, 0, searchDateFormatList[d].FormatLength[l]);
                                 FileOnlyName = Substring(filePureName, searchDateFormatList[d].FormatLength[l], filePureName.Length - searchDateFormatList[d].FormatLength[l]);
+                                filePureNameNoDate = FileOnlyName;
                                 break;
                             default:
                                 throw new ArgumentOutOfRangeException(nameof(DatePosition));
@@ -156,7 +159,7 @@ namespace OLKI.Programme.ReFiDa.src
                         {
                             if (DateTime.TryParseExact(DateCandidat, searchDateFormatList[d].Preview.Format, CultureInfo.InvariantCulture, DateTimeStyles.None, out FoundDateValue))
                             {
-                                string FileRenamed = FileNameBuilder(filePureName, fileInfo.Extension, fileInfo.CreationTime, targetDateFormat, out exception);
+                                string FileRenamed = FileNameBuilder(filePureNameNoDate, fileInfo.Extension, fileInfo.CreationTime, targetDateFormat, out exception);
                                 fileInfoReamed = new FileInfo(string.Format(@"{0}\{1}", new object[] { fileInfo.DirectoryName, FileRenamed }));
                                 return true;
                             }
