@@ -340,6 +340,7 @@ namespace OLKI.Programme.ReFiDa
                 FileInfo FileInfo = new FileInfo(OpenFileDialog.FileNames[0]);
                 this.txtFileSourceSelectPath.Text = FileInfo.DirectoryName;
                 FileLoader.LoadFilesToListview(OpenFileDialog.FileNames, this.lsvFiles, this);
+                this.UpdateRenameItem();
                 this.AutoInstantRename();
             }
         }
