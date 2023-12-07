@@ -31,7 +31,7 @@ namespace OLKI.Programme.ReFiDa.src.Forms
     /// Provide Controles to edit the Date format
     /// </summary>
     [System.ComponentModel.DefaultEvent("Changed")]
-    public partial class uscDateFormatgEditor : UserControl
+    public partial class uscDateFormatEditor : UserControl
     {
         #region Events
         /// <summary>
@@ -121,7 +121,7 @@ namespace OLKI.Programme.ReFiDa.src.Forms
         /// <summary>
         /// Inital a new Date Format Editr
         /// </summary>
-        public uscDateFormatgEditor()
+        public uscDateFormatEditor()
         {
             InitializeComponent();
         }

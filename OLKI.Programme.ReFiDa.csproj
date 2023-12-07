@@ -84,11 +84,11 @@
     <Compile Include="src\Forms\frmMainForm.Designer.cs">
       <DependentUpon>frmMainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="src\Forms\uscDateFormatgEditor.cs">
+    <Compile Include="src\Forms\uscDateFormatEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="src\Forms\uscDateFormatgEditor.Designer.cs">
-      <DependentUpon>uscDateFormatgEditor.cs</DependentUpon>
+    <Compile Include="src\Forms\uscDateFormatEditor.Designer.cs">
+      <DependentUpon>uscDateFormatEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,8 +105,8 @@
     <EmbeddedResource Include="src\Forms\frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="src\Forms\uscDateFormatgEditor.resx">
-      <DependentUpon>uscDateFormatgEditor.cs</DependentUpon>
+    <EmbeddedResource Include="src\Forms\uscDateFormatEditor.resx">
+      <DependentUpon>uscDateFormatEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="src\Stringtable.resx">
       <Generator>ResXFileCodeGenerator</Generator>

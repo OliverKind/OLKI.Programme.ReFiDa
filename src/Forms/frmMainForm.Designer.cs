@@ -48,10 +48,10 @@
             this.txtFileSourceDirectoryPath = new System.Windows.Forms.TextBox();
             this.grbPrepare = new System.Windows.Forms.GroupBox();
             this.lblFormatHelp = new System.Windows.Forms.LinkLabel();
-            this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatgEditor();
+            this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.txtFilenamePreview = new System.Windows.Forms.TextBox();
             this.grbDateSearchFormats = new System.Windows.Forms.GroupBox();
-            this.uscSearchDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatgEditor();
+            this.uscSearchDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.lsvDateSearchFormats = new OLKI.Toolbox.Widgets.SortListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDateSearchFormaRemove = new System.Windows.Forms.Button();
@@ -584,8 +584,8 @@
         private System.Windows.Forms.CheckBox chkQuitAfterRename;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Label lblFileSourceDragAndDrop;
-        private src.Forms.uscDateFormatgEditor uscNewDate;
-        private src.Forms.uscDateFormatgEditor uscSearchDate;
+        private src.Forms.uscDateFormatEditor uscNewDate;
+        private src.Forms.uscDateFormatEditor uscSearchDate;
         private System.Windows.Forms.Button btnFileSourceDirectoryRefresh;
         private System.Windows.Forms.CheckBox chkCheckForAlreadyInTargetFormat;
         private System.Windows.Forms.Button btnRefreshFileList;

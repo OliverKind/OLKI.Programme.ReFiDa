@@ -1,6 +1,6 @@
 ﻿namespace OLKI.Programme.ReFiDa.src.Forms
 {
-    partial class uscDateFormatgEditor
+    partial class uscDateFormatEditor
     {
         /// <summary> 
         /// Erforderliche Designervariable.
