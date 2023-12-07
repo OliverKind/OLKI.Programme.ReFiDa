@@ -133,7 +133,7 @@ namespace OLKI.Programme.ReFiDa
             this.lsvDateSearchFormats_SelectedIndexChanged(this, new EventArgs());
             FileLoader.LoadFilesToListview(args, this.lsvFiles, this);
             this.lsvFiles_SelectedIndexChanged(this, new EventArgs());
-
+            this.UpdateRenameItem();
             this.AutoInstantRename();
         }
 
