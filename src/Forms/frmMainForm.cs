@@ -86,6 +86,7 @@ namespace OLKI.Programme.ReFiDa
             this._aboutForm.UpdateOnStartupChanged += new EventHandler(this.AboudForm_UpdateCheckChanged);
             this._aboutForm.CheckForUpdate += new LinkLabelLinkClickedEventHandler(this.AboudForm_UpdateClicked);
 
+            this.Size = Settings_AppVar.Default.MainForm_Size;
             this.Text = string.Format(this.Text, new object[] { this._aboutForm.AssemblyTitle });
 
             OLKI.Toolbox.Widgets.Tools.ComboBox.AutoDropDownWidth(this.cboDateSource);
@@ -264,6 +265,8 @@ namespace OLKI.Programme.ReFiDa
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Settings_AppVar.Default.MainForm_Size = this.Size;
+            Settings_AppVar.Default.Save();
             try
             {
                 DirectoryInfo tempDirectory = Directory.CreateDirectory(Path.GetTempPath() + Settings_AppConst.Default.TempDirectoryName);

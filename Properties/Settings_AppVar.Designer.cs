@@ -48,5 +48,18 @@ namespace OLKI.Programme.ReFiDa.Properties {
                 this["SelectedTabPage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0, 0")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public global::System.Drawing.Size MainForm_Size {
+            get {
+                return ((global::System.Drawing.Size)(this["MainForm_Size"]));
+            }
+            set {
+                this["MainForm_Size"] = value;
+            }
+        }
     }
 }
