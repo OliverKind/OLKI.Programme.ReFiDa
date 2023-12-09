@@ -35,10 +35,10 @@
             this.btnRefreshFileList = new System.Windows.Forms.Button();
             this.chkCheckForAlreadyInTargetFormat = new System.Windows.Forms.CheckBox();
             this.lsvFiles = new OLKI.Toolbox.Widgets.SortListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohFilesOldFilename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohFilesNewFilename = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohFilesDirectory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.cohFilesNote = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnExecutetConvert = new System.Windows.Forms.Button();
             this.chkFileSourceDirectorySub = new System.Windows.Forms.CheckBox();
             this.grbExecute = new System.Windows.Forms.GroupBox();
@@ -49,8 +49,10 @@
             this.txtFileSourceDirectoryPath = new System.Windows.Forms.TextBox();
             this.grbPrepare = new System.Windows.Forms.GroupBox();
             this.lblFormatHelp = new System.Windows.Forms.LinkLabel();
+            this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.txtFilenamePreview = new System.Windows.Forms.TextBox();
             this.grbDateSearchFormats = new System.Windows.Forms.GroupBox();
+            this.uscSearchDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.lsvDateSearchFormats = new OLKI.Toolbox.Widgets.SortListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDateSearchFormaRemove = new System.Windows.Forms.Button();
@@ -66,8 +68,6 @@
             this.btnFileSourceDirectoryRefresh = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblFileSourceDragAndDrop = new System.Windows.Forms.Label();
-            this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
-            this.uscSearchDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.grbFiles.SuspendLayout();
             this.grbExecute.SuspendLayout();
             this.grbPrepare.SuspendLayout();
@@ -148,10 +148,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lsvFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lsvFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4});
+            this.cohFilesOldFilename,
+            this.cohFilesNewFilename,
+            this.cohFilesDirectory,
+            this.cohFilesNote});
             this.lsvFiles.FullRowSelect = true;
             this.lsvFiles.GridLines = true;
             this.lsvFiles.HideSelection = false;
@@ -162,31 +162,32 @@
             this.lsvFiles.TabIndex = 2;
             this.lsvFiles.UseCompatibleStateImageBehavior = false;
             this.lsvFiles.View = System.Windows.Forms.View.Details;
+            this.lsvFiles.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.lsvFiles_ColumnWidthChanged);
             this.lsvFiles.SelectedIndexChanged += new System.EventHandler(this.lsvFiles_SelectedIndexChanged);
             this.lsvFiles.DragDrop += new System.Windows.Forms.DragEventHandler(this.lsvFiles_DragDrop);
             this.lsvFiles.DragEnter += new System.Windows.Forms.DragEventHandler(this.lsvFiles_DragEnter);
             this.lsvFiles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lsvFilesPreview_KeyDown);
             this.lsvFiles.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lsvFiles_MouseDoubleClick);
             // 
-            // columnHeader1
+            // cohFilesOldFilename
             // 
-            this.columnHeader1.Text = "Dateiname alt";
-            this.columnHeader1.Width = 200;
+            this.cohFilesOldFilename.Text = "Dateiname alt";
+            this.cohFilesOldFilename.Width = 200;
             // 
-            // columnHeader2
+            // cohFilesNewFilename
             // 
-            this.columnHeader2.Text = "Dateiname neu";
-            this.columnHeader2.Width = 200;
+            this.cohFilesNewFilename.Text = "Dateiname neu";
+            this.cohFilesNewFilename.Width = 200;
             // 
-            // columnHeader3
+            // cohFilesDirectory
             // 
-            this.columnHeader3.Text = "Ordner";
-            this.columnHeader3.Width = 200;
+            this.cohFilesDirectory.Text = "Ordner";
+            this.cohFilesDirectory.Width = 200;
             // 
-            // columnHeader4
+            // cohFilesNote
             // 
-            this.columnHeader4.Text = "Hinweis";
-            this.columnHeader4.Width = 115;
+            this.cohFilesNote.Text = "Hinweis";
+            this.cohFilesNote.Width = 115;
             // 
             // btnExecutetConvert
             // 
@@ -318,6 +319,19 @@
             this.lblFormatHelp.Text = "Hilfe zur Formatierung";
             this.lblFormatHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFormatHelp_LinkClicked);
             // 
+            // uscNewDate
+            // 
+            this.uscNewDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscNewDate.DateFormat = null;
+            this.uscNewDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
+            this.uscNewDate.Location = new System.Drawing.Point(6, 146);
+            this.uscNewDate.Name = "uscNewDate";
+            this.uscNewDate.Seperator = null;
+            this.uscNewDate.Size = new System.Drawing.Size(356, 20);
+            this.uscNewDate.TabIndex = 1;
+            this.uscNewDate.Changed += new System.EventHandler(this.uscNewDate_Changed);
+            // 
             // txtFilenamePreview
             // 
             this.txtFilenamePreview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -342,6 +356,17 @@
             this.grbDateSearchFormats.TabStop = false;
             this.grbDateSearchFormats.Text = "Suchmuster und Suchreihenfolge";
             this.grbDateSearchFormats.EnabledChanged += new System.EventHandler(this.grbDateSearchFormats_EnabledChanged);
+            // 
+            // uscSearchDate
+            // 
+            this.uscSearchDate.DateFormat = null;
+            this.uscSearchDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
+            this.uscSearchDate.Location = new System.Drawing.Point(6, 81);
+            this.uscSearchDate.Name = "uscSearchDate";
+            this.uscSearchDate.Seperator = null;
+            this.uscSearchDate.Size = new System.Drawing.Size(363, 20);
+            this.uscSearchDate.TabIndex = 3;
+            this.uscSearchDate.Changed += new System.EventHandler(this.uscSearchDate_Changed);
             // 
             // lsvDateSearchFormats
             // 
@@ -536,30 +561,6 @@
             this.lblFileSourceDragAndDrop.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblFileSourceDragAndDrop_DragDrop);
             this.lblFileSourceDragAndDrop.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblFileSourceDragAndDrop_DragEnter);
             // 
-            // uscNewDate
-            // 
-            this.uscNewDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscNewDate.DateFormat = null;
-            this.uscNewDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
-            this.uscNewDate.Location = new System.Drawing.Point(6, 146);
-            this.uscNewDate.Name = "uscNewDate";
-            this.uscNewDate.Seperator = null;
-            this.uscNewDate.Size = new System.Drawing.Size(356, 20);
-            this.uscNewDate.TabIndex = 1;
-            this.uscNewDate.Changed += new System.EventHandler(this.uscNewDate_Changed);
-            // 
-            // uscSearchDate
-            // 
-            this.uscSearchDate.DateFormat = null;
-            this.uscSearchDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
-            this.uscSearchDate.Location = new System.Drawing.Point(6, 81);
-            this.uscSearchDate.Name = "uscSearchDate";
-            this.uscSearchDate.Seperator = null;
-            this.uscSearchDate.Size = new System.Drawing.Size(363, 20);
-            this.uscSearchDate.TabIndex = 3;
-            this.uscSearchDate.Changed += new System.EventHandler(this.uscSearchDate_Changed);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,12 +598,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader cohFilesNote;
         private System.Windows.Forms.Label lblNewDateFormat;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader cohFilesNewFilename;
+        private System.Windows.Forms.ColumnHeader cohFilesOldFilename;
         private OLKI.Toolbox.Widgets.SortListView lsvFiles;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.GroupBox grbFiles;
         private System.Windows.Forms.Button btnExecutetConvert;
         private System.Windows.Forms.CheckBox chkFileSourceDirectorySub;
@@ -636,5 +636,6 @@
         private System.Windows.Forms.Button btnRefreshFileList;
         private System.Windows.Forms.LinkLabel lblFormatHelp;
         private System.Windows.Forms.CheckBox chkSelectAllRenameableFiles;
+        private System.Windows.Forms.ColumnHeader cohFilesDirectory;
     }
 }
