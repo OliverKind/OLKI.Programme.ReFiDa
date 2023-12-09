@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.lblNewDateFormat = new System.Windows.Forms.Label();
             this.grbFiles = new System.Windows.Forms.GroupBox();
+            this.chkSelectAllRenameableFiles = new System.Windows.Forms.CheckBox();
             this.btnRefreshFileList = new System.Windows.Forms.Button();
             this.chkCheckForAlreadyInTargetFormat = new System.Windows.Forms.CheckBox();
             this.lsvFiles = new OLKI.Toolbox.Widgets.SortListView();
@@ -67,7 +68,6 @@
             this.lblFileSourceDragAndDrop = new System.Windows.Forms.Label();
             this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.uscSearchDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
-            this.chkSelectAllRenameableFiles = new System.Windows.Forms.CheckBox();
             this.grbFiles.SuspendLayout();
             this.grbExecute.SuspendLayout();
             this.grbPrepare.SuspendLayout();
@@ -89,6 +89,9 @@
             // 
             // grbFiles
             // 
+            this.grbFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbFiles.Controls.Add(this.chkSelectAllRenameableFiles);
             this.grbFiles.Controls.Add(this.btnRefreshFileList);
             this.grbFiles.Controls.Add(this.chkCheckForAlreadyInTargetFormat);
@@ -100,8 +103,21 @@
             this.grbFiles.TabStop = false;
             this.grbFiles.Text = "Vorschau";
             // 
+            // chkSelectAllRenameableFiles
+            // 
+            this.chkSelectAllRenameableFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkSelectAllRenameableFiles.AutoSize = true;
+            this.chkSelectAllRenameableFiles.Location = new System.Drawing.Point(6, 231);
+            this.chkSelectAllRenameableFiles.Name = "chkSelectAllRenameableFiles";
+            this.chkSelectAllRenameableFiles.Size = new System.Drawing.Size(373, 17);
+            this.chkSelectAllRenameableFiles.TabIndex = 3;
+            this.chkSelectAllRenameableFiles.Text = "Nach dem aktualisieren der Liste alle umbenennbaren Dateien auswählen";
+            this.chkSelectAllRenameableFiles.UseVisualStyleBackColor = true;
+            this.chkSelectAllRenameableFiles.CheckedChanged += new System.EventHandler(this.chkSelectAllRenameableFiles_CheckedChanged);
+            // 
             // btnRefreshFileList
             // 
+            this.btnRefreshFileList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefreshFileList.Image = global::OLKI.Programme.ReFiDa.Properties.Resources._112_RefreshArrow_Blue_16x16_72;
             this.btnRefreshFileList.Location = new System.Drawing.Point(603, 19);
             this.btnRefreshFileList.Name = "btnRefreshFileList";
@@ -127,6 +143,9 @@
             // lsvFiles
             // 
             this.lsvFiles.AllowDrop = true;
+            this.lsvFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lsvFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lsvFiles.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
@@ -171,6 +190,8 @@
             // 
             // btnExecutetConvert
             // 
+            this.btnExecutetConvert.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExecutetConvert.Image = global::OLKI.Programme.ReFiDa.Properties.Resources.FilesRename;
             this.btnExecutetConvert.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExecutetConvert.Location = new System.Drawing.Point(264, 19);
@@ -184,6 +205,7 @@
             // 
             // chkFileSourceDirectorySub
             // 
+            this.chkFileSourceDirectorySub.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkFileSourceDirectorySub.AutoSize = true;
             this.chkFileSourceDirectorySub.Checked = true;
             this.chkFileSourceDirectorySub.CheckState = System.Windows.Forms.CheckState.Checked;
@@ -197,6 +219,8 @@
             // 
             // grbExecute
             // 
+            this.grbExecute.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbExecute.Controls.Add(this.chkQuitAfterRename);
             this.grbExecute.Controls.Add(this.chkInstantRename);
             this.grbExecute.Controls.Add(this.btnExecutetConvert);
@@ -240,6 +264,7 @@
             // 
             // btnFileSourceDirectoryBrowse
             // 
+            this.btnFileSourceDirectoryBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFileSourceDirectoryBrowse.Image = global::OLKI.Programme.ReFiDa.Properties.Resources.Browse;
             this.btnFileSourceDirectoryBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFileSourceDirectoryBrowse.Location = new System.Drawing.Point(445, 6);
@@ -253,6 +278,8 @@
             // 
             // txtFileSourceDirectoryPath
             // 
+            this.txtFileSourceDirectoryPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFileSourceDirectoryPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtFileSourceDirectoryPath.Location = new System.Drawing.Point(77, 8);
             this.txtFileSourceDirectoryPath.Name = "txtFileSourceDirectoryPath";
@@ -262,6 +289,8 @@
             // 
             // grbPrepare
             // 
+            this.grbPrepare.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grbPrepare.Controls.Add(this.lblFormatHelp);
             this.grbPrepare.Controls.Add(this.uscNewDate);
             this.grbPrepare.Controls.Add(this.txtFilenamePreview);
@@ -279,6 +308,7 @@
             // 
             // lblFormatHelp
             // 
+            this.lblFormatHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFormatHelp.AutoSize = true;
             this.lblFormatHelp.Location = new System.Drawing.Point(253, 130);
             this.lblFormatHelp.Name = "lblFormatHelp";
@@ -290,6 +320,8 @@
             // 
             // txtFilenamePreview
             // 
+            this.txtFilenamePreview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFilenamePreview.Location = new System.Drawing.Point(6, 172);
             this.txtFilenamePreview.Name = "txtFilenamePreview";
             this.txtFilenamePreview.ReadOnly = true;
@@ -298,6 +330,7 @@
             // 
             // grbDateSearchFormats
             // 
+            this.grbDateSearchFormats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.grbDateSearchFormats.Controls.Add(this.uscSearchDate);
             this.grbDateSearchFormats.Controls.Add(this.lsvDateSearchFormats);
             this.grbDateSearchFormats.Controls.Add(this.btnDateSearchFormaRemove);
@@ -374,6 +407,8 @@
             // 
             // cboDateSource
             // 
+            this.cboDateSource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboDateSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDateSource.FormattingEnabled = true;
             this.cboDateSource.Items.AddRange(new object[] {
@@ -390,6 +425,8 @@
             // 
             // tabFileSource
             // 
+            this.tabFileSource.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabFileSource.Controls.Add(this.tabPage2);
             this.tabFileSource.Controls.Add(this.tabPage1);
             this.tabFileSource.Controls.Add(this.tabPage3);
@@ -424,6 +461,7 @@
             // 
             // btnFileSourceSelectBrowse
             // 
+            this.btnFileSourceSelectBrowse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFileSourceSelectBrowse.Image = global::OLKI.Programme.ReFiDa.Properties.Resources.Browse;
             this.btnFileSourceSelectBrowse.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFileSourceSelectBrowse.Location = new System.Drawing.Point(563, 6);
@@ -437,6 +475,8 @@
             // 
             // txtFileSourceSelectPath
             // 
+            this.txtFileSourceSelectPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFileSourceSelectPath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.txtFileSourceSelectPath.Location = new System.Drawing.Point(77, 8);
             this.txtFileSourceSelectPath.Name = "txtFileSourceSelectPath";
@@ -461,6 +501,7 @@
             // 
             // btnFileSourceDirectoryRefresh
             // 
+            this.btnFileSourceDirectoryRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFileSourceDirectoryRefresh.Image = global::OLKI.Programme.ReFiDa.Properties.Resources._112_RefreshArrow_Blue_16x16_72;
             this.btnFileSourceDirectoryRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFileSourceDirectoryRefresh.Location = new System.Drawing.Point(699, 6);
@@ -497,6 +538,8 @@
             // 
             // uscNewDate
             // 
+            this.uscNewDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.uscNewDate.DateFormat = null;
             this.uscNewDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
             this.uscNewDate.Location = new System.Drawing.Point(6, 146);
@@ -517,17 +560,6 @@
             this.uscSearchDate.TabIndex = 3;
             this.uscSearchDate.Changed += new System.EventHandler(this.uscSearchDate_Changed);
             // 
-            // chkSelectAllRenameableFiles
-            // 
-            this.chkSelectAllRenameableFiles.AutoSize = true;
-            this.chkSelectAllRenameableFiles.Location = new System.Drawing.Point(6, 231);
-            this.chkSelectAllRenameableFiles.Name = "chkSelectAllRenameableFiles";
-            this.chkSelectAllRenameableFiles.Size = new System.Drawing.Size(373, 17);
-            this.chkSelectAllRenameableFiles.TabIndex = 3;
-            this.chkSelectAllRenameableFiles.Text = "Nach dem aktualisieren der Liste alle umbenennbaren Dateien auswählen";
-            this.chkSelectAllRenameableFiles.UseVisualStyleBackColor = true;
-            this.chkSelectAllRenameableFiles.CheckedChanged += new System.EventHandler(this.chkSelectAllRenameableFiles_CheckedChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -536,11 +568,11 @@
             this.Controls.Add(this.grbFiles);
             this.Controls.Add(this.grbExecute);
             this.Controls.Add(this.grbPrepare);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(790, 607);
             this.Name = "MainForm";
             this.Text = "{0} ";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.MainForm_HelpButtonClicked);
