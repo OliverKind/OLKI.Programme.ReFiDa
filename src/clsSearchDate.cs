@@ -25,6 +25,7 @@
 
 using OLKI.Programme.ReFiDa.Properties;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using static OLKI.Programme.ReFiDa.src.DateFormatProvider;
@@ -33,6 +34,13 @@ namespace OLKI.Programme.ReFiDa.src
 {
     internal static class SearchDate
     {
+        #region Constants
+        private const string EML_DATE_PATTERN = "Date: ";
+        private const string EML_LINE_BREAK = "\r\n";
+        private static readonly List<string> EML_TIME_FORMAT = new List<string> { "ddd, d MMM yyyy HH:mm:ss zzz", "ddd, dd MMM yyyy HH:mm:ss zzz", "dd MMM yyyy HH:mm:ss zzz", "d MMM yyyy HH:mm:ss zzz" };
+        #endregion
+
+        #region Methodes
         /// <summary>
         /// Bould a new filename, depending of the format
         /// </summary>
@@ -230,7 +238,21 @@ namespace OLKI.Programme.ReFiDa.src
         {
             try
             {
-                throw new NotImplementedException();
+                exception = null;
+                fileInfoReamed = null;
+                string MailFile = File.ReadAllText(fileInfo.FullName, System.Text.Encoding.UTF8);
+                int DateStart = MailFile.IndexOf(EML_DATE_PATTERN, StringComparison.InvariantCultureIgnoreCase);
+                int EndDate = MailFile.IndexOf(EML_LINE_BREAK, DateStart, StringComparison.InvariantCultureIgnoreCase);
+                string DateFound = MailFile.Substring(DateStart + EML_DATE_PATTERN.Length, EndDate - DateStart - EML_DATE_PATTERN.Length);
+                DateTime RecivedDate;
+
+                if (DateTime.TryParseExact(DateFound, EML_TIME_FORMAT.ToArray(), CultureInfo.InvariantCulture, DateTimeStyles.AllowLeadingWhite | DateTimeStyles.AllowTrailingWhite, out RecivedDate))
+                {
+                    string FileRenamed = FileNameBuilder(filePureName, fileInfo.Extension, RecivedDate, targetDateFormat, out exception);
+                    fileInfoReamed = new FileInfo(string.Format(@"{0}\{1}", new object[] { fileInfo.DirectoryName, FileRenamed }));
+                    return true;
+                }
+                return false;
             }
             catch (Exception ex)
             {
@@ -263,5 +285,6 @@ namespace OLKI.Programme.ReFiDa.src
                 return string.Empty;
             }
         }
+        #endregion
     }
 }

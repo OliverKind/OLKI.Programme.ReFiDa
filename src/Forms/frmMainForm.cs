@@ -30,11 +30,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text.Json;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace OLKI.Programme.ReFiDa
 {
@@ -89,8 +86,6 @@ namespace OLKI.Programme.ReFiDa
             this.Size = Settings_AppVar.Default.MainForm_Size;
             this.Text = string.Format(this.Text, new object[] { this._aboutForm.AssemblyTitle });
 
-            OLKI.Toolbox.Widgets.Tools.ComboBox.AutoDropDownWidth(this.cboDateSource);
-            this.cboDateSource.Items.RemoveAt(this.cboDateSource.Items.Count - 1);  //Remove last combobox item (Reading Thunderbird i)
             this.cboDateSource.SelectedIndex = Settings.Default.SearchDate_Source;
             Toolbox.Widgets.Tools.ComboBox.AutoDropDownWidth(this.cboDateSource);
             this.chkCheckForAlreadyInTargetFormat.Checked = Settings.Default.CheckForAlreadyInTargetFormat;
