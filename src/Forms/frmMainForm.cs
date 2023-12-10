@@ -30,6 +30,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -94,10 +95,11 @@ namespace OLKI.Programme.ReFiDa
             this.chkInstantRename.Checked = Settings.Default.InstantRename;
             this.chkSelectAllRenameableFiles.Checked = Settings.Default.SelectAllRenameableFiles;
 
-            if (Settings_AppVar.Default.ColHeadSet_cohFilesDirectory_Width > -1) { this.cohFilesDirectory.Width = Settings_AppVar.Default.ColHeadSet_cohFilesDirectory_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohFilesNewFilename_Width > -1) { this.cohFilesNewFilename.Width = Settings_AppVar.Default.ColHeadSet_cohFilesNewFilename_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohFilesNote_Width > -1) { this.cohFilesNote.Width = Settings_AppVar.Default.ColHeadSet_cohFilesNote_Width; }
-            if (Settings_AppVar.Default.ColHeadSet_cohFilesOldFilename_Width > -1) { this.cohFilesOldFilename.Width = Settings_AppVar.Default.ColHeadSet_cohFilesOldFilename_Width; }
+            List<int> ColWidth = Settings_AppVar.Default.FilesColumnWidth.Split(';').Select(s => int.Parse(s)).ToList();
+            for (int i = 0; i < this.lsvFiles.Columns.Count; i++)
+            {
+                if (ColWidth[i] > -1) this.lsvFiles.Columns[i].Width = ColWidth[i];
+            }
 
             this._systemChanged = true;
             string[] DateFormatList = new string[Settings.Default.SearchDate_List.Count];
@@ -481,10 +483,13 @@ namespace OLKI.Programme.ReFiDa
         private void lsvFiles_ColumnWidthChanged(object sender, ColumnWidthChangedEventArgs e)
         {
             if (this._systemChanged) return;
-            Settings_AppVar.Default.ColHeadSet_cohFilesDirectory_Width = this.cohFilesDirectory.Width;
-            Settings_AppVar.Default.ColHeadSet_cohFilesNewFilename_Width = this.cohFilesNewFilename.Width;
-            Settings_AppVar.Default.ColHeadSet_cohFilesNote_Width = this.cohFilesNote.Width;
-            Settings_AppVar.Default.ColHeadSet_cohFilesOldFilename_Width = this.cohFilesOldFilename.Width;
+
+            List<int> ColWidth = new List<int>();
+            for (int i = 0; i < this.lsvFiles.Columns.Count; i++)
+            {
+                ColWidth.Add(this.lsvFiles.Columns[i].Width);
+            }
+            Settings_AppVar.Default.FilesColumnWidth = string.Join(";", ColWidth);
             Settings_AppVar.Default.Save();
         }
 

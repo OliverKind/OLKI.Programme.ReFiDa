@@ -64,53 +64,14 @@ namespace OLKI.Programme.ReFiDa.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1;-1;-1;-1")]
         [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohFilesOldFilename_Width {
+        public string FilesColumnWidth {
             get {
-                return ((int)(this["ColHeadSet_cohFilesOldFilename_Width"]));
+                return ((string)(this["FilesColumnWidth"]));
             }
             set {
-                this["ColHeadSet_cohFilesOldFilename_Width"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohFilesNewFilename_Width {
-            get {
-                return ((int)(this["ColHeadSet_cohFilesNewFilename_Width"]));
-            }
-            set {
-                this["ColHeadSet_cohFilesNewFilename_Width"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohFilesDirectory_Width {
-            get {
-                return ((int)(this["ColHeadSet_cohFilesDirectory_Width"]));
-            }
-            set {
-                this["ColHeadSet_cohFilesDirectory_Width"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
-        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
-        public int ColHeadSet_cohFilesNote_Width {
-            get {
-                return ((int)(this["ColHeadSet_cohFilesNote_Width"]));
-            }
-            set {
-                this["ColHeadSet_cohFilesNote_Width"] = value;
+                this["FilesColumnWidth"] = value;
             }
         }
     }
