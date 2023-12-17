@@ -47,5 +47,11 @@
     <Setting Name="SelectAllRenameableFiles" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ShortenFilenames" Roaming="true" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ShortenFilenames_Limit" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">260</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

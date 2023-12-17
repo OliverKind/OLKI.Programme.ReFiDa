@@ -50,25 +50,37 @@ namespace OLKI.Programme.ReFiDa.src
         /// <param name="targetDateFormat">Format of the target Date and Filename</param>
         /// <param name="exception">Exception while create the Filename</param>
         /// <returns>A string with the final Filename</returns>
-        private static string FileNameBuilder(string filePureName, string fileExtension, DateTime targetDate, DateFormatProvider targetDateFormat, out Exception exception)
+        private static FileInfo CreateNewFileInfo(FileInfo fileInfo, string filePureName, DateTime targetDate, DateFormatProvider targetDateFormat, out Exception exception)
         {
             exception = null;
+            string NewPath;
+            string TargetDate = targetDate.ToString(targetDateFormat.Preview.Format);
             try
             {
                 switch (targetDateFormat.Format.Position)
                 {
                     case DatePositionIndicator.AfterFilename:
-                        return string.Format("{1}{0}{2}", new object[] { targetDate.ToString(targetDateFormat.Preview.Format), filePureName, fileExtension });
+                        NewPath = string.Format(@"{0}\{2}{1}{3}", new object[] { fileInfo.DirectoryName, TargetDate, filePureName, fileInfo.Extension });
+                        break;
                     case DatePositionIndicator.BeforeFilename:
-                        return string.Format("{0}{1}{2}", new object[] { targetDate.ToString(targetDateFormat.Preview.Format), filePureName, fileExtension });
+                        NewPath = string.Format(@"{0}\{1}{2}{3}", new object[] { fileInfo.DirectoryName, TargetDate, filePureName, fileInfo.Extension });
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(targetDateFormat.Format.Position));
                 }
+
+                //Shorten filenames if required
+                if (Properties.Settings.Default.ShortenFilenames)
+                {
+                    NewPath = Toolbox.DirectoryAndFile.File.ShortenFilenameToMaxPathLength(NewPath, Properties.Settings.Default.ShortenFilenames_Limit, out exception);
+                }
+
+                return new FileInfo(NewPath);
             }
             catch (Exception ex)
             {
                 exception = ex;
-                return string.Empty;
+                return null;
             }
         }
 
@@ -85,9 +97,8 @@ namespace OLKI.Programme.ReFiDa.src
         {
             try
             {
-                string FileRenamed = FileNameBuilder(filePureName, fileInfo.Extension, fileInfo.LastWriteTime, targetDateFormat, out exception);
-                fileInfoReamed = new FileInfo(string.Format(@"{0}\{1}", new object[] { fileInfo.DirectoryName, FileRenamed }));
-                return true;
+                fileInfoReamed = CreateNewFileInfo(fileInfo, filePureName, fileInfo.LastWriteTime, targetDateFormat, out exception);
+                return fileInfoReamed != null;
             }
             catch (Exception ex)
             {
@@ -110,9 +121,8 @@ namespace OLKI.Programme.ReFiDa.src
         {
             try
             {
-                string FileRenamed = FileNameBuilder(filePureName, fileInfo.Extension, fileInfo.CreationTime, targetDateFormat, out exception);
-                fileInfoReamed = new FileInfo(string.Format(@"{0}\{1}", new object[] { fileInfo.DirectoryName, FileRenamed }));
-                return true;
+                fileInfoReamed = CreateNewFileInfo(fileInfo, filePureName, fileInfo.CreationTime, targetDateFormat, out exception);
+                return fileInfoReamed != null;
             }
             catch (Exception ex)
             {
@@ -167,9 +177,8 @@ namespace OLKI.Programme.ReFiDa.src
                         {
                             if (DateTime.TryParseExact(DateCandidat, searchDateFormatList[d].Preview.Format, CultureInfo.InvariantCulture, DateTimeStyles.None, out FoundDateValue))
                             {
-                                string FileRenamed = FileNameBuilder(filePureNameNoDate, fileInfo.Extension, FoundDateValue, targetDateFormat, out exception);
-                                fileInfoReamed = new FileInfo(string.Format(@"{0}\{1}", new object[] { fileInfo.DirectoryName, FileRenamed }));
-                                return true;
+                                fileInfoReamed = CreateNewFileInfo(fileInfo, filePureNameNoDate, FoundDateValue, targetDateFormat, out exception);
+                                return fileInfoReamed != null;
                             }
                         }
                     }
@@ -211,11 +220,10 @@ namespace OLKI.Programme.ReFiDa.src
                 Microsoft.Office.Interop.Outlook.MailItem MailItem = OutlookApp.Session.OpenSharedItem(TempFileInfo.FullName) as Microsoft.Office.Interop.Outlook.MailItem;
 
                 //Rename file
-                string FileRenamed = FileNameBuilder(filePureName, fileInfo.Extension, MailItem.ReceivedTime, targetDateFormat, out exception);
-                fileInfoReamed = new FileInfo(string.Format(@"{0}\{1}", new object[] { fileInfo.DirectoryName, FileRenamed }));
+                fileInfoReamed = CreateNewFileInfo(fileInfo, filePureName, MailItem.ReceivedTime, targetDateFormat, out exception);
                 MailItem.Close(Microsoft.Office.Interop.Outlook.OlInspectorClose.olDiscard);
 
-                return true;
+                return fileInfoReamed != null;
             }
             catch (Exception ex)
             {
@@ -248,9 +256,8 @@ namespace OLKI.Programme.ReFiDa.src
 
                 if (DateTime.TryParseExact(DateFound, EML_TIME_FORMAT.ToArray(), CultureInfo.InvariantCulture, DateTimeStyles.AllowLeadingWhite | DateTimeStyles.AllowTrailingWhite, out RecivedDate))
                 {
-                    string FileRenamed = FileNameBuilder(filePureName, fileInfo.Extension, RecivedDate, targetDateFormat, out exception);
-                    fileInfoReamed = new FileInfo(string.Format(@"{0}\{1}", new object[] { fileInfo.DirectoryName, FileRenamed }));
-                    return true;
+                    fileInfoReamed = CreateNewFileInfo(fileInfo, filePureName, RecivedDate, targetDateFormat, out exception);
+                    return fileInfoReamed != null;
                 }
                 return false;
             }

@@ -33,6 +33,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace OLKI.Programme.ReFiDa
 {
@@ -94,6 +95,8 @@ namespace OLKI.Programme.ReFiDa
             this.chkQuitAfterRename.Checked = Settings.Default.QuitAfterRename;
             this.chkInstantRename.Checked = Settings.Default.InstantRename;
             this.chkSelectAllRenameableFiles.Checked = Settings.Default.SelectAllRenameableFiles;
+            this.chkShortenFilenames.Checked = Settings.Default.ShortenFilenames;
+            this.nudShortenFilenamesLimit.Value = Settings.Default.ShortenFilenames_Limit;
 
             List<int> ColWidth = Settings_AppVar.Default.FilesColumnWidth.Split(';').Select(s => int.Parse(s)).ToList();
             for (int i = 0; i < this.lsvFiles.Columns.Count; i++)
@@ -386,26 +389,33 @@ namespace OLKI.Programme.ReFiDa
 
         private void chkFileSourceDirectorySub_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.Default.FileSourceDirectorySub = chkFileSourceDirectorySub.Checked;
+            Settings.Default.FileSourceDirectorySub = this.chkFileSourceDirectorySub.Checked;
             Settings.Default.Save();
         }
 
         private void chkInstantRename_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.Default.InstantRename = chkInstantRename.Checked;
+            Settings.Default.InstantRename = this.chkInstantRename.Checked;
             Settings.Default.Save();
         }
 
         private void chkQuitAfterRename_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.Default.QuitAfterRename = chkQuitAfterRename.Checked;
+            Settings.Default.QuitAfterRename = this.chkQuitAfterRename.Checked;
             Settings.Default.Save();
         }
 
         private void chkSelectAllRenameableFiles_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.Default.SelectAllRenameableFiles = chkSelectAllRenameableFiles.Checked;
+            Settings.Default.SelectAllRenameableFiles = this.chkSelectAllRenameableFiles.Checked;
             Settings.Default.Save();
+        }
+
+        private void chkShortenFilenames_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.ShortenFilenames = this.chkShortenFilenames.Checked;
+            Settings.Default.Save();
+            this.UpdateRenameItem();
         }
 
         private void grbDateSearchFormats_EnabledChanged(object sender, EventArgs e)
@@ -522,6 +532,13 @@ namespace OLKI.Programme.ReFiDa
         private void lsvFiles_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.btnExecutetConvert.Enabled = this.lsvFiles.SelectedItems.Count > 0;
+        }
+
+        private void nudShortenFilenamesLimit_ValueChanged(object sender, EventArgs e)
+        {
+            Settings.Default.ShortenFilenames_Limit = (int)this.nudShortenFilenamesLimit.Value;
+            Settings.Default.Save();
+            this.UpdateRenameItem();
         }
 
         private void tabFileSource_Selected(object sender, TabControlEventArgs e)

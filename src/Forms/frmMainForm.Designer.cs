@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.lblNewDateFormat = new System.Windows.Forms.Label();
             this.grbFiles = new System.Windows.Forms.GroupBox();
+            this.nudShortenFilenamesLimit = new System.Windows.Forms.NumericUpDown();
+            this.chkShortenFilenames = new System.Windows.Forms.CheckBox();
             this.chkSelectAllRenameableFiles = new System.Windows.Forms.CheckBox();
             this.btnRefreshFileList = new System.Windows.Forms.Button();
             this.chkCheckForAlreadyInTargetFormat = new System.Windows.Forms.CheckBox();
@@ -69,6 +71,7 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblFileSourceDragAndDrop = new System.Windows.Forms.Label();
             this.grbFiles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudShortenFilenamesLimit)).BeginInit();
             this.grbExecute.SuspendLayout();
             this.grbPrepare.SuspendLayout();
             this.grbDateSearchFormats.SuspendLayout();
@@ -92,6 +95,8 @@
             this.grbFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbFiles.Controls.Add(this.nudShortenFilenamesLimit);
+            this.grbFiles.Controls.Add(this.chkShortenFilenames);
             this.grbFiles.Controls.Add(this.chkSelectAllRenameableFiles);
             this.grbFiles.Controls.Add(this.btnRefreshFileList);
             this.grbFiles.Controls.Add(this.chkCheckForAlreadyInTargetFormat);
@@ -99,9 +104,43 @@
             this.grbFiles.Location = new System.Drawing.Point(13, 216);
             this.grbFiles.Name = "grbFiles";
             this.grbFiles.Size = new System.Drawing.Size(749, 254);
-            this.grbFiles.TabIndex = 1;
+            this.grbFiles.TabIndex = 0;
             this.grbFiles.TabStop = false;
             this.grbFiles.Text = "Vorschau";
+            // 
+            // nudShortenFilenamesLimit
+            // 
+            this.nudShortenFilenamesLimit.Location = new System.Drawing.Point(519, 24);
+            this.nudShortenFilenamesLimit.Maximum = new decimal(new int[] {
+            32767,
+            0,
+            0,
+            0});
+            this.nudShortenFilenamesLimit.Minimum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudShortenFilenamesLimit.Name = "nudShortenFilenamesLimit";
+            this.nudShortenFilenamesLimit.Size = new System.Drawing.Size(60, 20);
+            this.nudShortenFilenamesLimit.TabIndex = 2;
+            this.nudShortenFilenamesLimit.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nudShortenFilenamesLimit.ValueChanged += new System.EventHandler(this.nudShortenFilenamesLimit_ValueChanged);
+            // 
+            // chkShortenFilenames
+            // 
+            this.chkShortenFilenames.AutoSize = true;
+            this.chkShortenFilenames.Location = new System.Drawing.Point(324, 24);
+            this.chkShortenFilenames.Name = "chkShortenFilenames";
+            this.chkShortenFilenames.Size = new System.Drawing.Size(189, 17);
+            this.chkShortenFilenames.TabIndex = 1;
+            this.chkShortenFilenames.Text = "Lange Dateipfade kürzen. Grenze:";
+            this.chkShortenFilenames.UseVisualStyleBackColor = true;
+            this.chkShortenFilenames.CheckedChanged += new System.EventHandler(this.chkShortenFilenames_CheckedChanged);
             // 
             // chkSelectAllRenameableFiles
             // 
@@ -110,7 +149,7 @@
             this.chkSelectAllRenameableFiles.Location = new System.Drawing.Point(6, 231);
             this.chkSelectAllRenameableFiles.Name = "chkSelectAllRenameableFiles";
             this.chkSelectAllRenameableFiles.Size = new System.Drawing.Size(373, 17);
-            this.chkSelectAllRenameableFiles.TabIndex = 3;
+            this.chkSelectAllRenameableFiles.TabIndex = 5;
             this.chkSelectAllRenameableFiles.Text = "Nach dem aktualisieren der Liste alle umbenennbaren Dateien auswählen";
             this.chkSelectAllRenameableFiles.UseVisualStyleBackColor = true;
             this.chkSelectAllRenameableFiles.CheckedChanged += new System.EventHandler(this.chkSelectAllRenameableFiles_CheckedChanged);
@@ -122,7 +161,7 @@
             this.btnRefreshFileList.Location = new System.Drawing.Point(603, 19);
             this.btnRefreshFileList.Name = "btnRefreshFileList";
             this.btnRefreshFileList.Size = new System.Drawing.Size(140, 24);
-            this.btnRefreshFileList.TabIndex = 1;
+            this.btnRefreshFileList.TabIndex = 3;
             this.btnRefreshFileList.Text = "Liste Aktualisieren";
             this.btnRefreshFileList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRefreshFileList.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -132,7 +171,7 @@
             // chkCheckForAlreadyInTargetFormat
             // 
             this.chkCheckForAlreadyInTargetFormat.AutoSize = true;
-            this.chkCheckForAlreadyInTargetFormat.Location = new System.Drawing.Point(6, 19);
+            this.chkCheckForAlreadyInTargetFormat.Location = new System.Drawing.Point(6, 23);
             this.chkCheckForAlreadyInTargetFormat.Name = "chkCheckForAlreadyInTargetFormat";
             this.chkCheckForAlreadyInTargetFormat.Size = new System.Drawing.Size(312, 17);
             this.chkCheckForAlreadyInTargetFormat.TabIndex = 0;
@@ -159,7 +198,7 @@
             this.lsvFiles.Name = "lsvFiles";
             this.lsvFiles.ShowItemToolTips = true;
             this.lsvFiles.Size = new System.Drawing.Size(737, 176);
-            this.lsvFiles.TabIndex = 2;
+            this.lsvFiles.TabIndex = 4;
             this.lsvFiles.UseCompatibleStateImageBehavior = false;
             this.lsvFiles.View = System.Windows.Forms.View.Details;
             this.lsvFiles.ColumnWidthChanged += new System.Windows.Forms.ColumnWidthChangedEventHandler(this.lsvFiles_ColumnWidthChanged);
@@ -581,6 +620,7 @@
             this.Shown += new System.EventHandler(this.MainForm_Shown);
             this.grbFiles.ResumeLayout(false);
             this.grbFiles.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudShortenFilenamesLimit)).EndInit();
             this.grbExecute.ResumeLayout(false);
             this.grbExecute.PerformLayout();
             this.grbPrepare.ResumeLayout(false);
@@ -637,5 +677,7 @@
         private System.Windows.Forms.LinkLabel lblFormatHelp;
         private System.Windows.Forms.CheckBox chkSelectAllRenameableFiles;
         private System.Windows.Forms.ColumnHeader cohFilesDirectory;
+        private System.Windows.Forms.CheckBox chkShortenFilenames;
+        private System.Windows.Forms.NumericUpDown nudShortenFilenamesLimit;
     }
 }

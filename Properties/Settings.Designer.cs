@@ -177,5 +177,31 @@ namespace OLKI.Programme.ReFiDa.Properties {
                 this["SelectAllRenameableFiles"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public bool ShortenFilenames {
+            get {
+                return ((bool)(this["ShortenFilenames"]));
+            }
+            set {
+                this["ShortenFilenames"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("260")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int ShortenFilenames_Limit {
+            get {
+                return ((int)(this["ShortenFilenames_Limit"]));
+            }
+            set {
+                this["ShortenFilenames_Limit"] = value;
+            }
+        }
     }
 }
