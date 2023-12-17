@@ -230,11 +230,11 @@ namespace OLKI.Programme.ReFiDa.src
                 {
                     case DateSearchMode.FilePropertyLastWriteTime:
                         GetDateResult = SearchDate.GetFromFilePropertyLastWriteTime(this.FileInfo, this.FilePureName, out FileInfoReamed, targetDateFormat, out Exception);
-                        this.State = GetDateResult ? RenameState.ToRename : RenameState.Exception;
+                        this.State = this.UpdateState(GetDateResult, Exception);
                         break;
                     case DateSearchMode.FilePropertyCreationTime:
                         GetDateResult = SearchDate.GetFromFilePropertyCreationTime(this.FileInfo, this.FilePureName, out FileInfoReamed, targetDateFormat, out Exception);
-                        this.State = GetDateResult ? RenameState.ToRename : RenameState.Exception;
+                        this.State = this.UpdateState(GetDateResult, Exception);
                         break;
                     case DateSearchMode.Filename:
                         string FilePureNameNoDate = this.FilePureName;
@@ -271,7 +271,7 @@ namespace OLKI.Programme.ReFiDa.src
         /// <returns>Set to Rename, if set, or NoRename if no exception has thrown, otherwise set to exception</returns>
         private RenameState UpdateState(bool setToRename, Exception exception)
         {
-            if (setToRename)
+            if (setToRename && exception == null)
             {
                 return RenameState.ToRename;
             }
