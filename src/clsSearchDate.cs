@@ -35,8 +35,17 @@ namespace OLKI.Programme.ReFiDa.src
     internal static class SearchDate
     {
         #region Constants
+        /// <summary>
+        /// Identify Date Line in EML-File
+        /// </summary>
         private const string EML_DATE_PATTERN = "Date: ";
+        /// <summary>
+        /// Identify Line Break in EML-File
+        /// </summary>
         private const string EML_LINE_BREAK = "\r\n";
+        /// <summary>
+        /// Posible date formats to finde a Date sinside a EML-File
+        /// </summary>
         private static readonly List<string> EML_TIME_FORMAT = new List<string> { "ddd, d MMM yyyy HH:mm:ss zzz", "ddd, dd MMM yyyy HH:mm:ss zzz", "dd MMM yyyy HH:mm:ss zzz", "d MMM yyyy HH:mm:ss zzz" };
         #endregion
 
