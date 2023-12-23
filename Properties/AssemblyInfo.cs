@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("ReFiDa - Reformating File names that contains a Date")]
-[assembly: AssemblyDescription("Ein Progamm zum neu formatieren von Daiteien die mit einem Datum in reinem Zahlenformat beginnen oder enden oder zum Auslesen des Datums aus einer Datei.")]
+[assembly: AssemblyTitle("ReFiDa - Renaming File names, adding a Date")]
+[assembly: AssemblyDescription("Ein Programm Dateinamen um eine Datumsangabe zu ergänzen oder Dateinamen die Bereits ein Datum enthalten umzubenennen.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("OLKI-Software")]
 [assembly: AssemblyProduct("ReFiDa")]
