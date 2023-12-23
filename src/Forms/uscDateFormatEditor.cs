@@ -1,5 +1,5 @@
 ﻿/*
- * ReFiDa - QuickBackupCreator
+ * ReFiDa - Reformating File names that contains a Date
  * 
  * Copyright:   Oliver Kind - 2023
  * License:     LGPL
