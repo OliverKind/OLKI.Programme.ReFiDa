@@ -24,11 +24,13 @@
 
 
 using OLKI.Programme.ReFiDa.Properties;
+using Outlook = Microsoft.Office.Interop.Outlook;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using static OLKI.Programme.ReFiDa.src.DateFormatProvider;
+using System.Windows.Forms;
 
 namespace OLKI.Programme.ReFiDa.src
 {
@@ -49,17 +51,48 @@ namespace OLKI.Programme.ReFiDa.src
         private static readonly List<string> EML_TIME_FORMAT = new List<string> { "ddd, d MMM yyyy HH:mm:ss zzz", "ddd, dd MMM yyyy HH:mm:ss zzz", "dd MMM yyyy HH:mm:ss zzz", "d MMM yyyy HH:mm:ss zzz" };
         #endregion
 
+        #region Enums
+        /// <summary>
+        /// Enum to set where Outlook Elemnts should been added to a date
+        /// </summary>
+        public enum OutlookAdd
+        {
+            NoAdd = 0,
+            SenderUserBefore = 10,
+            SenderUserAfter = 11,
+            SenderAddressBefore = 20,
+            SenderAdressAfter = 21,
+            SenderHostBefore = 30,
+            SenderHostAfter = 31
+        }
+        #endregion
+
         #region Methodes
         /// <summary>
-        /// Bould a new filename, depending of the format
+        /// Build a new filename, depending of the format
         /// </summary>
+        /// <param name="fileInfo">FileInfo of the original File</param>
         /// <param name="filePureName">Filename without extension</param>
-        /// <param name="fileExtension">Fileextension of the file</param>
         /// <param name="targetDate">Target date of the file</param>
         /// <param name="targetDateFormat">Format of the target Date and Filename</param>
         /// <param name="exception">Exception while create the Filename</param>
-        /// <returns>A string with the final Filename</returns>
-        private static FileInfo CreateNewFileInfo(FileInfo fileInfo, string filePureName, DateTime targetDate, DateFormatProvider targetDateFormat, out Exception exception)
+        /// <returns>FileInfo for new File with target name</returns>
+        public static FileInfo CreateNewFileInfo(FileInfo fileInfo, string filePureName, DateTime targetDate, DateFormatProvider targetDateFormat, out Exception exception)
+        {
+            return CreateNewFileInfo(fileInfo, filePureName, targetDate, targetDateFormat, "", "", out exception);
+        }
+        /// <summary>
+        /// Build a new filename, depending of the format
+        /// </summary>
+        /// <param name="fileInfo">FileInfo of the original File</param>
+        /// <param name="filePureName">Filename without extension</param>
+        /// <param name="targetDate">Target date of the file</param>
+        /// <param name="targetDateFormat">Format of the target Date and Filename</param>
+        /// <param name="textAfterDate">Text to add before the Date</param>
+        /// <param name="textBeforeDate">Text to add after the Date</param>
+        /// <param name="exception">Exception while create the Filename</param>
+        /// <returns>FileInfo for new File with target name</returns>
+        public static FileInfo CreateNewFileInfo(FileInfo fileInfo, string filePureName, DateTime targetDate, DateFormatProvider targetDateFormat, string textAfterDate, string textBeforeDate, out Exception exception)
         {
             exception = null;
             string NewPath;
@@ -69,10 +102,14 @@ namespace OLKI.Programme.ReFiDa.src
                 switch (targetDateFormat.Format.Position)
                 {
                     case DatePositionIndicator.AfterFilename:
-                        NewPath = string.Format(@"{0}\{2}{1}{3}", new object[] { fileInfo.DirectoryName, TargetDate, filePureName, fileInfo.Extension });
+                        if (!string.IsNullOrEmpty(textAfterDate)) textAfterDate = string.Format("{1}{0}", new object[] { textAfterDate, targetDateFormat.Format.Seperator });
+                        if (!string.IsNullOrEmpty(textBeforeDate)) textBeforeDate = string.Format("{1}{0}", new object[] { textBeforeDate, targetDateFormat.Format.Seperator });
+                        NewPath = string.Format(@"{0}\{2}{5}{1}{4}{3}", new object[] { fileInfo.DirectoryName, TargetDate, filePureName, fileInfo.Extension, textAfterDate, textBeforeDate });
                         break;
                     case DatePositionIndicator.BeforeFilename:
-                        NewPath = string.Format(@"{0}\{1}{2}{3}", new object[] { fileInfo.DirectoryName, TargetDate, filePureName, fileInfo.Extension });
+                        if (!string.IsNullOrEmpty(textAfterDate)) textAfterDate = string.Format("{0}{1}", new object[] { textAfterDate, targetDateFormat.Format.Seperator });
+                        if (!string.IsNullOrEmpty(textBeforeDate)) textBeforeDate = string.Format("{0}{1}", new object[] { textBeforeDate, targetDateFormat.Format.Seperator });
+                        NewPath = string.Format(@"{0}\{5}{1}{4}{2}{3}", new object[] { fileInfo.DirectoryName, TargetDate, filePureName, fileInfo.Extension, textAfterDate, textBeforeDate });
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(targetDateFormat.Format.Position));
@@ -156,8 +193,8 @@ namespace OLKI.Programme.ReFiDa.src
             exception = null;
             fileInfoReamed = null;
             filePureNameNoDate = string.Empty;
-            string DateCandidat = string.Empty;
-            string FileOnlyName = string.Empty;
+            string DateCandidat;
+            string FileOnlyName;
             DatePositionIndicator DatePosition;
             try
             {
@@ -214,6 +251,9 @@ namespace OLKI.Programme.ReFiDa.src
         {
             try
             {
+                string TextAfter = ""; ;
+                string TextBefore = ""; ;
+
                 exception = null;
                 fileInfoReamed = null;
                 if (string.Compare(fileInfo.Extension, ".msg", StringComparison.OrdinalIgnoreCase) != 0) return false;
@@ -225,12 +265,18 @@ namespace OLKI.Programme.ReFiDa.src
                 fileInfo.CopyTo(TempFileInfo.FullName, true);
 
                 //Open in Outlook
-                Microsoft.Office.Interop.Outlook.Application OutlookApp = new Microsoft.Office.Interop.Outlook.Application();
-                Microsoft.Office.Interop.Outlook.MailItem MailItem = OutlookApp.Session.OpenSharedItem(TempFileInfo.FullName) as Microsoft.Office.Interop.Outlook.MailItem;
+                Outlook.Application OutlookApp = new Outlook.Application();
+                Outlook.MailItem MailItem = OutlookApp.Session.OpenSharedItem(TempFileInfo.FullName) as Outlook.MailItem;
+
+                //TODO: Replace Special Fields
+                if (MailItem.SenderEmailType.Equals("SMTP", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    GetFromMsgFileTextAfterBefore(MailItem, out TextAfter, out TextBefore);
+                }
 
                 //Rename file
-                fileInfoReamed = CreateNewFileInfo(fileInfo, filePureName, MailItem.ReceivedTime, targetDateFormat, out exception);
-                MailItem.Close(Microsoft.Office.Interop.Outlook.OlInspectorClose.olDiscard);
+                fileInfoReamed = CreateNewFileInfo(fileInfo, filePureName, MailItem.ReceivedTime, targetDateFormat, TextAfter, TextBefore, out exception);
+                MailItem.Close(Outlook.OlInspectorClose.olDiscard);
 
                 return fileInfoReamed != null;
             }
@@ -239,6 +285,65 @@ namespace OLKI.Programme.ReFiDa.src
                 exception = ex;
                 fileInfoReamed = null;
                 return false;
+            }
+        }
+
+        /// <summary>
+        /// Get sender data from E-Mail element
+        /// </summary>
+        /// <param name="mail">E-Mail item</param>
+        /// <param name="textAfter">Add text after date</param>
+        /// <param name="textBefore">Add text before date</param>
+        public static void GetFromMsgFileTextAfterBefore(Outlook.MailItem mail, out string textAfter, out string textBefore)
+        {
+            System.Net.Mail.MailAddress MailFrom = new System.Net.Mail.MailAddress(mail.SenderEmailAddress, mail.SenderName);
+            GetFromMsgFileTextAfterBefore(MailFrom, out textAfter, out textBefore);
+        }
+        /// <summary>
+        /// Get sender data from E-Mail element
+        /// </summary>
+        /// <param name="mailFrom">E-Mail from das MailAdress Object</param>
+        /// <param name="textAfter">Add text after date</param>
+        /// <param name="textBefore">Add text before date</param>
+        public static void GetFromMsgFileTextAfterBefore(System.Net.Mail.MailAddress mailFrom, out string textAfter, out string textBefore)
+        {
+            try
+            {
+                textAfter = "";
+                textBefore = "";
+
+                switch ((OutlookAdd)Properties.Settings.Default.OutlookAdd)
+                {
+                    case OutlookAdd.NoAdd:
+                        return;
+                    case OutlookAdd.SenderUserBefore:
+                        textBefore = mailFrom.User;
+                        return;
+                    case OutlookAdd.SenderUserAfter:
+                        textAfter = mailFrom.User;
+                        return;
+                    case OutlookAdd.SenderAddressBefore:
+                        textBefore = mailFrom.Address;
+                        return;
+                    case OutlookAdd.SenderAdressAfter:
+                        textAfter = mailFrom.Address;
+                        return;
+                    case OutlookAdd.SenderHostBefore:
+                        textBefore = mailFrom.Host;
+                        return;
+                    case OutlookAdd.SenderHostAfter:
+                        textAfter = mailFrom.Host;
+                        return;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                _ = ex;
+                textAfter = "";
+                textBefore = "";
             }
         }
 

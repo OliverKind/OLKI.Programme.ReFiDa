@@ -128,6 +128,15 @@ namespace OLKI.Programme.ReFiDa.src {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Dateiname.Endung ähnelt.
+        /// </summary>
+        internal static string _0x0005c {
+            get {
+                return ResourceManager.GetString("0x0005c", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die &lt;Keine Formatierung&gt; ähnelt.
         /// </summary>
         internal static string _0x0006 {
@@ -137,7 +146,7 @@ namespace OLKI.Programme.ReFiDa.src {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die  . . . {1}{0}.... ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die . . . {1}{0}.... ähnelt.
         /// </summary>
         internal static string _0x0007a {
             get {
@@ -151,6 +160,15 @@ namespace OLKI.Programme.ReFiDa.src {
         internal static string _0x0007b {
             get {
                 return ResourceManager.GetString("0x0007b", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die absender@domain.de ähnelt.
+        /// </summary>
+        internal static string _0x0008 {
+            get {
+                return ResourceManager.GetString("0x0008", resourceCulture);
             }
         }
     }

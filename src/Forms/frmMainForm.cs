@@ -1,5 +1,5 @@
 ﻿/*
- * ReFiDa - QuickBackupCreator
+ * ReFiDa - Reformating File names that contains a Date
  * 
  * Copyright:   Oliver Kind - 2023
  * License:     LGPL
@@ -33,7 +33,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace OLKI.Programme.ReFiDa
 {
@@ -46,12 +45,17 @@ namespace OLKI.Programme.ReFiDa
         /// <summary>
         /// Object to show the About Form
         /// </summary>
-        private AboutForm _aboutForm;
+        private readonly AboutForm _aboutForm;
+
+        /// <summary>
+        /// Object to show the About Form
+        /// </summary>
+        private EMailForm _emailForm;
 
         /// <summary>
         /// A list with Searchpatterns to search for Dates in a flename
         /// </summary>
-        private List<DateFormatProvider> _searchFormatList = new List<DateFormatProvider>();
+        private readonly List<DateFormatProvider> _searchFormatList = new List<DateFormatProvider>();
 
         /// <summary>
         /// Changes are system intern
@@ -373,11 +377,14 @@ namespace OLKI.Programme.ReFiDa
 
         private void cboDateSource_SelectedIndexChanged(object sender, EventArgs e)
         {
+            this.lblFormatOutlook.Enabled = this.cboDateSource.SelectedIndex == 3;
+
             Settings.Default.SearchDate_Source = this.cboDateSource.SelectedIndex;
             Settings.Default.Save();
 
             this.grbDateSearchFormats.Enabled = (this.cboDateSource.SelectedIndex == 2);
             this.UpdateRenameItem();
+            this.txtFilenamePreview.Text = this._targetDateFormat.Preview.FinalDummyFilenameWithMail;
         }
 
         private void chkCheckForAlreadyInTargetFormat_CheckedChanged(object sender, EventArgs e)
@@ -418,6 +425,20 @@ namespace OLKI.Programme.ReFiDa
             this.UpdateRenameItem();
         }
 
+        private void emailForm_Changed(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this._emailForm == null) return;
+                this.txtFilenamePreview.Text = this._targetDateFormat.Preview.FinalDummyFilenameWithMail;
+                this.UpdateRenameItem();
+            }
+            catch (Exception ex)
+            {
+                _ = ex;
+            }
+        }
+
         private void grbDateSearchFormats_EnabledChanged(object sender, EventArgs e)
         {
             this.grbDateSearchFormats.Visible = this.grbDateSearchFormats.Enabled;
@@ -439,6 +460,18 @@ namespace OLKI.Programme.ReFiDa
         private void lblFormatHelp_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start(Settings_AppConst.Default.FormatHelpLink);
+        }
+
+        private void lblFormatOutlook_EnabledChanged(object sender, EventArgs e)
+        {
+            this.lblFormatOutlook.Visible = this.lblFormatOutlook.Enabled;
+        }
+
+        private void lblFormatOutlook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this._emailForm = new EMailForm((SearchDate.OutlookAdd)Settings.Default.OutlookAdd);
+            this._emailForm.Changed += new EventHandler(this.emailForm_Changed);
+            this._emailForm.Show(this);
         }
 
         private void lsvFilesPreview_KeyDown(object sender, KeyEventArgs e)
@@ -569,11 +602,11 @@ namespace OLKI.Programme.ReFiDa
             this._targetDateFormat.Format.Seperator = this.uscNewDate.Seperator;
             this._targetDateFormat.AutoUpdateLengthList = true;
             this._targetDateFormat.UpdateFormatLengthList();
-            this.txtFilenamePreview.Text = this._targetDateFormat.Preview.FinalDummyFilename;
 
             Settings.Default.NewDate_Format = this._targetDateFormat.JSONencode;
             Settings.Default.Save();
             this.UpdateRenameItem();
+            this.txtFilenamePreview.Text = this._targetDateFormat.Preview.FinalDummyFilenameWithMail;
         }
 
         private void uscSearchDate_Changed(object sender, EventArgs e)

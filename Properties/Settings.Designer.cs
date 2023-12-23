@@ -203,5 +203,18 @@ namespace OLKI.Programme.ReFiDa.Properties {
                 this["ShortenFilenames_Limit"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
+        public int OutlookAdd {
+            get {
+                return ((int)(this["OutlookAdd"]));
+            }
+            set {
+                this["OutlookAdd"] = value;
+            }
+        }
     }
 }

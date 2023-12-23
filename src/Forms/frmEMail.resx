@@ -117,44 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="0x0001" xml:space="preserve">
-    <value>Ordner mit Dateien zum umbennen auswählen.</value>
-  </data>
-  <data name="0x0002c" xml:space="preserve">
-    <value>Fehler beim Suchen!</value>
-  </data>
-  <data name="0x0002m" xml:space="preserve">
-    <value>Beim Suchen nach zu konvertierenden Dateien ist ein Fehler aufgetreten.
-
-{0}</value>
-  </data>
-  <data name="0x0003c" xml:space="preserve">
-    <value>Fehler beim Umbennen!</value>
-  </data>
-  <data name="0x0003m" xml:space="preserve">
-    <value>Beim Umbennen der Dateien ist ein Fehler aufgetreten.
-
-{0}</value>
-  </data>
-  <data name="0x0005a" xml:space="preserve">
-    <value>Dateiname{1}{0}.Endung</value>
-  </data>
-  <data name="0x0005b" xml:space="preserve">
-    <value>{0}{1}Dateiname.Endung</value>
-  </data>
-  <data name="0x0005c" xml:space="preserve">
-    <value>Dateiname.Endung</value>
-  </data>
-  <data name="0x0006" xml:space="preserve">
-    <value>&lt;Keine Formatierung&gt;</value>
-  </data>
-  <data name="0x0007a" xml:space="preserve">
-    <value>. . . {1}{0}....</value>
-  </data>
-  <data name="0x0007b" xml:space="preserve">
-    <value>{0}{1} . . . ....</value>
-  </data>
-  <data name="0x0008" xml:space="preserve">
-    <value>absender@domain.de</value>
-  </data>
 </root>

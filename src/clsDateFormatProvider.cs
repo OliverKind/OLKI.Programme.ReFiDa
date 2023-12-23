@@ -25,7 +25,10 @@
 using OLKI.Programme.ReFiDa.Properties;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Mail;
 using System.Text.Json;
+using System.Windows.Forms;
 
 namespace OLKI.Programme.ReFiDa.src
 {
@@ -124,23 +127,63 @@ namespace OLKI.Programme.ReFiDa.src
 
             #region Properteis
             /// <summary>
-            /// Shows the formated dummy Date with Seperators with an dummy filename
+            /// Shows the formated dummy Date, with Seperators and dummy filename
             /// </summary>
             public string FinalDummyFilename
             {
                 get
                 {
+                    DateFormatProvider DateFormatProvider = new DateFormatProvider(false, Properties.Settings.Default.NewDate_Format);
+                    RenameItem DummyFile = new RenameItem(new FileInfo(@"c:\Dateiname.Erweiterung"));
+
+                    string textAfterDate = "";
+                    string textBeforeDate = "";
+                    FileInfo NewFileInfo = SearchDate.CreateNewFileInfo(DummyFile.FileInfo, DummyFile.FilePureName, DateTime.Now, DateFormatProvider, textAfterDate, textBeforeDate, out Exception Exception);
+
+                    if (Exception != null) return Exception.Message;
+                    return NewFileInfo.Name;
+
+                    /*
+                    switch (this._format.Position)
+                    {
+                        case DatePositionIndicator.AfterFilename:
+                            return string.Format(Stringtable._0x0005a, new object[] { DateTime.Now.ToString(this._format.Date), this._format.Seperator });
+                        case DatePositionIndicator.BeforeFilename:
+                            return string.Format(Stringtable._0x0005b, new object[] { DateTime.Now.ToString(this._format.Date), this._format.Seperator });
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(this._format.Position));
+                    }*/
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    return ex.Message;
+                    //}
+                }
+            }
+
+            /// <summary>
+            /// Shows the formated dummy Date, with Seperators, E-Mail Adress Dummy if set in Application settings and dummy filename
+            /// </summary>
+            public string FinalDummyFilenameWithMail
+            {
+                get
+                {
                     try
                     {
-                        switch (this._format.Position)
+                        DateFormatProvider DateFormatProvider = new DateFormatProvider(false, Properties.Settings.Default.NewDate_Format);
+                        RenameItem DummyFile = new RenameItem(new FileInfo(@"c:\" + Stringtable._0x0005c));
+                        MailAddress MailFrom = new MailAddress(Stringtable._0x0008);
+
+                        string textAfterDate = "";
+                        string textBeforeDate = "";
+                        if (Properties.Settings.Default.OutlookAdd > 0 && Properties.Settings.Default.SearchDate_Source == 3)
                         {
-                            case DatePositionIndicator.AfterFilename:
-                                return string.Format(Stringtable._0x0005a, new object[] { DateTime.Now.ToString(this._format.Date), this._format.Seperator });
-                            case DatePositionIndicator.BeforeFilename:
-                                return string.Format(Stringtable._0x0005b, new object[] { DateTime.Now.ToString(this._format.Date), this._format.Seperator });
-                            default:
-                                throw new ArgumentOutOfRangeException(nameof(this._format.Position));
+                            SearchDate.GetFromMsgFileTextAfterBefore(MailFrom, out textAfterDate, out textBeforeDate);
                         }
+                        FileInfo NewFileInfo = SearchDate.CreateNewFileInfo(DummyFile.FileInfo, DummyFile.FilePureName, DateTime.Now, DateFormatProvider, textAfterDate, textBeforeDate, out Exception Exception);
+
+                        if (Exception != null) return Exception.Message;
+                        return NewFileInfo.Name;
                     }
                     catch (Exception ex)
                     {

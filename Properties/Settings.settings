@@ -53,5 +53,8 @@
     <Setting Name="ShortenFilenames_Limit" Roaming="true" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">260</Value>
     </Setting>
+    <Setting Name="OutlookAdd" Roaming="true" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

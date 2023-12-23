@@ -50,6 +50,7 @@
             this.btnFileSourceDirectoryBrowse = new System.Windows.Forms.Button();
             this.txtFileSourceDirectoryPath = new System.Windows.Forms.TextBox();
             this.grbPrepare = new System.Windows.Forms.GroupBox();
+            this.lblFormatOutlook = new System.Windows.Forms.LinkLabel();
             this.lblFormatHelp = new System.Windows.Forms.LinkLabel();
             this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.txtFilenamePreview = new System.Windows.Forms.TextBox();
@@ -331,6 +332,7 @@
             // 
             this.grbPrepare.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grbPrepare.Controls.Add(this.lblFormatOutlook);
             this.grbPrepare.Controls.Add(this.lblFormatHelp);
             this.grbPrepare.Controls.Add(this.uscNewDate);
             this.grbPrepare.Controls.Add(this.txtFilenamePreview);
@@ -346,6 +348,19 @@
             this.grbPrepare.TabStop = false;
             this.grbPrepare.Text = "Datein laden ";
             // 
+            // lblFormatOutlook
+            // 
+            this.lblFormatOutlook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFormatOutlook.AutoSize = true;
+            this.lblFormatOutlook.Location = new System.Drawing.Point(180, 111);
+            this.lblFormatOutlook.Name = "lblFormatOutlook";
+            this.lblFormatOutlook.Size = new System.Drawing.Size(182, 13);
+            this.lblFormatOutlook.TabIndex = 3;
+            this.lblFormatOutlook.TabStop = true;
+            this.lblFormatOutlook.Text = "Spezielle Foramte für Outlook E-Mails";
+            this.lblFormatOutlook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFormatOutlook_LinkClicked);
+            this.lblFormatOutlook.EnabledChanged += new System.EventHandler(this.lblFormatOutlook_EnabledChanged);
+            // 
             // lblFormatHelp
             // 
             this.lblFormatHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -353,7 +368,7 @@
             this.lblFormatHelp.Location = new System.Drawing.Point(253, 130);
             this.lblFormatHelp.Name = "lblFormatHelp";
             this.lblFormatHelp.Size = new System.Drawing.Size(109, 13);
-            this.lblFormatHelp.TabIndex = 12;
+            this.lblFormatHelp.TabIndex = 5;
             this.lblFormatHelp.TabStop = true;
             this.lblFormatHelp.Text = "Hilfe zur Formatierung";
             this.lblFormatHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFormatHelp_LinkClicked);
@@ -368,7 +383,7 @@
             this.uscNewDate.Name = "uscNewDate";
             this.uscNewDate.Seperator = null;
             this.uscNewDate.Size = new System.Drawing.Size(356, 20);
-            this.uscNewDate.TabIndex = 1;
+            this.uscNewDate.TabIndex = 6;
             this.uscNewDate.Changed += new System.EventHandler(this.uscNewDate_Changed);
             // 
             // txtFilenamePreview
@@ -379,7 +394,7 @@
             this.txtFilenamePreview.Name = "txtFilenamePreview";
             this.txtFilenamePreview.ReadOnly = true;
             this.txtFilenamePreview.Size = new System.Drawing.Size(356, 20);
-            this.txtFilenamePreview.TabIndex = 10;
+            this.txtFilenamePreview.TabIndex = 7;
             // 
             // grbDateSearchFormats
             // 
@@ -391,7 +406,7 @@
             this.grbDateSearchFormats.Location = new System.Drawing.Point(368, 83);
             this.grbDateSearchFormats.Name = "grbDateSearchFormats";
             this.grbDateSearchFormats.Size = new System.Drawing.Size(375, 107);
-            this.grbDateSearchFormats.TabIndex = 3;
+            this.grbDateSearchFormats.TabIndex = 8;
             this.grbDateSearchFormats.TabStop = false;
             this.grbDateSearchFormats.Text = "Suchmuster und Suchreihenfolge";
             this.grbDateSearchFormats.EnabledChanged += new System.EventHandler(this.grbDateSearchFormats_EnabledChanged);
@@ -679,5 +694,6 @@
         private System.Windows.Forms.ColumnHeader cohFilesDirectory;
         private System.Windows.Forms.CheckBox chkShortenFilenames;
         private System.Windows.Forms.NumericUpDown nudShortenFilenamesLimit;
+        private System.Windows.Forms.LinkLabel lblFormatOutlook;
     }
 }
