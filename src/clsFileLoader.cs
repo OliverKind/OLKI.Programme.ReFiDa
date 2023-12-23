@@ -35,6 +35,7 @@ namespace OLKI.Programme.ReFiDa.src
     /// </summary>
     internal static class FileLoader
     {
+        #region Methodes
         /// <summary>
         /// Load all files of the defined directory and subdirectorys, if requested, to a List
         /// </summary>
@@ -125,5 +126,6 @@ namespace OLKI.Programme.ReFiDa.src
                 ((Form)form).Enabled = true;
             }
         }
+        #endregion
     }
 }
