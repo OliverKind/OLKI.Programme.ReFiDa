@@ -1,4 +1,8 @@
 # ReFiDa - Reformating File names that contains a Date
+## [3.0.1.6] - 2023-12-29
+### Changed
+- Code improvemend
+
 ## [3.0.0.5] - 2023-12-23
 ### Added
 - Added special E-Mail fields to filename

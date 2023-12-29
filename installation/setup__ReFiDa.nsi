@@ -1,4 +1,4 @@
-;NSIS Installer for ReFiDa 3.0.0.5
+;NSIS Installer for ReFiDa 3.0.1.6
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'ReFiDa'
-  !define Version          '3.0.0.5'
+  !define Version          '3.0.1.6'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm Dateinamen um eine Datumsangabe zu ergänzen oder Dateinamen die Bereits ein Datum enthalten umzubenennen.'
   !define Copyright        '2023 - Oliver Kind'
