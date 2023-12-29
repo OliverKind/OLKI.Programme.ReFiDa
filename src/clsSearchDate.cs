@@ -256,7 +256,7 @@ namespace OLKI.Programme.ReFiDa.src
 
                 exception = null;
                 fileInfoReamed = null;
-                if (string.Compare(fileInfo.Extension, ".msg", StringComparison.OrdinalIgnoreCase) != 0) return false;
+                if (!fileInfo.Extension.ToLower().Contains(".msg")) return false;
 
                 //Create temporary directory an file
                 DirectoryInfo TempDirInfo = Directory.CreateDirectory(Path.GetTempPath() + Settings_AppConst.Default.TempDirectoryName);
