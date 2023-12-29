@@ -33,6 +33,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using static OLKI.Programme.ReFiDa.src.RenameItem;
 
 namespace OLKI.Programme.ReFiDa
 {
@@ -377,12 +378,12 @@ namespace OLKI.Programme.ReFiDa
 
         private void cboDateSource_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.lblFormatOutlook.Enabled = this.cboDateSource.SelectedIndex == 3;
+            this.lblFormatOutlook.Enabled = this.cboDateSource.SelectedIndex == (int)DateSearchMode.EMailOutlook;
 
             Settings.Default.SearchDate_Source = this.cboDateSource.SelectedIndex;
             Settings.Default.Save();
 
-            this.grbDateSearchFormats.Enabled = (this.cboDateSource.SelectedIndex == 2);
+            this.grbDateSearchFormats.Enabled = (this.cboDateSource.SelectedIndex == (int)DateSearchMode.Filename);
             this.UpdateRenameItem();
             this.txtFilenamePreview.Text = this._targetDateFormat.Preview.FinalDummyFilenameWithMail;
         }
