@@ -30,7 +30,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using static OLKI.Programme.ReFiDa.src.DateFormatProvider;
-using System.Windows.Forms;
 
 namespace OLKI.Programme.ReFiDa.src
 {

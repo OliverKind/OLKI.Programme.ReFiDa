@@ -23,7 +23,6 @@
  * */
 
 using OLKI.Programme.ReFiDa.Properties;
-using OLKI.Programme.ReFiDa.src;
 using OLKI.Toolbox.Widgets.AboutForm;
 using System;
 using System.Collections.Generic;
@@ -35,7 +34,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using static OLKI.Programme.ReFiDa.src.RenameItem;
 
-namespace OLKI.Programme.ReFiDa
+namespace OLKI.Programme.ReFiDa.src.Forms
 {
     /// <summary>
     /// The MainForm of the application

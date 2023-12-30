@@ -1,5 +1,5 @@
 # ReFiDa - Reformating File names that contains a Date
-## [3.0.1.6] - 2023-12-29
+## [3.0.1.6] - 2023-12-30
 ### Changed
 - Code improvemend
 

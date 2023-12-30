@@ -28,7 +28,7 @@ using System;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.ReFiDa
+namespace OLKI.Programme.ReFiDa.src
 {
     /// <summary>
     /// Root object of the application
@@ -85,7 +85,7 @@ namespace OLKI.Programme.ReFiDa
                 Settings_AppVar.Default.Save();
             }
 
-            Application.Run(new MainForm(args));
+            Application.Run(new Forms.MainForm(args));
         }
 
         /// <summary>

@@ -22,12 +22,11 @@
  * 
  * */
 
-using OLKI.Programme.ReFiDa.src;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace OLKI.Programme.ReFiDa
+namespace OLKI.Programme.ReFiDa.src.Forms
 {
     internal partial class EMailForm : Form
     {

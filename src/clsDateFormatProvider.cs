@@ -28,7 +28,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net.Mail;
 using System.Text.Json;
-using System.Windows.Forms;
 
 namespace OLKI.Programme.ReFiDa.src
 {

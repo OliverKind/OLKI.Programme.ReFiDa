@@ -1,4 +1,4 @@
-﻿namespace OLKI.Programme.ReFiDa
+﻿namespace OLKI.Programme.ReFiDa.src.Forms
 {
     partial class MainForm
     {
