@@ -102,13 +102,13 @@ namespace OLKI.Programme.ReFiDa.src.Forms
             this.chkShortenFilenames.Checked = Settings.Default.ShortenFilenames;
             this.nudShortenFilenamesLimit.Value = Settings.Default.ShortenFilenames_Limit;
 
+            this._systemChanged = true;
             List<int> ColWidth = Settings_AppVar.Default.FilesColumnWidth.Split(';').Select(s => int.Parse(s)).ToList();
             for (int i = 0; i < this.lsvFiles.Columns.Count; i++)
             {
                 if (ColWidth[i] > -1) this.lsvFiles.Columns[i].Width = ColWidth[i];
             }
 
-            this._systemChanged = true;
             string[] DateFormatList = new string[Settings.Default.SearchDate_List.Count];
             DateFormatProvider NewDateFormatProvider;
             ListViewItem NewListViewItem;
