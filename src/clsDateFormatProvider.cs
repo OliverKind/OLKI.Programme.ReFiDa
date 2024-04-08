@@ -141,22 +141,6 @@ namespace OLKI.Programme.ReFiDa.src
 
                     if (Exception != null) return Exception.Message;
                     return NewFileInfo.Name;
-
-                    /*
-                    switch (this._format.Position)
-                    {
-                        case DatePositionIndicator.AfterFilename:
-                            return string.Format(Stringtable._0x0005a, new object[] { DateTime.Now.ToString(this._format.Date), this._format.Seperator });
-                        case DatePositionIndicator.BeforeFilename:
-                            return string.Format(Stringtable._0x0005b, new object[] { DateTime.Now.ToString(this._format.Date), this._format.Seperator });
-                        default:
-                            throw new ArgumentOutOfRangeException(nameof(this._format.Position));
-                    }*/
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    return ex.Message;
-                    //}
                 }
             }
 
