@@ -40,7 +40,7 @@ namespace OLKI.Programme.ReFiDa.src
         /// Load all files of the defined directory and subdirectorys, if requested, to a List
         /// </summary>
         /// <param name="directory">Path of the directory to laod the files from</param>
-        /// <param name="subDirectorys">DEfines if the subdirectorys should also been loaded</param>
+        /// <param name="subDirectorys">Defines if the subdirectorys should also been loaded</param>
         /// <returns>List with files in the directory and subdirectorys, if requested, to a List</returns>
         public static FileInfo[] GetFilesFromDirectory(string directory, bool subDirectorys)
         {
@@ -51,7 +51,7 @@ namespace OLKI.Programme.ReFiDa.src
         /// Load all files of the defined directory and subdirectorys, if requested, to a List
         /// </summary>
         /// <param name="directoryInfo">Path of the directory to laod the files from</param>
-        /// <param name="subDirectorys">DEfines if the subdirectorys should also been loaded</param>
+        /// <param name="subDirectorys">Defines if the subdirectorys should also been loaded</param>
         /// <returns>List with files in the directory and subdirectorys, if requested, to a List</returns>
         public static FileInfo[] GetFilesFromDirectory(DirectoryInfo directoryInfo, bool subDirectorys)
         {
@@ -73,14 +73,15 @@ namespace OLKI.Programme.ReFiDa.src
         /// <param name="files">Files to write to ListView</param>
         /// <param name="listView">ListView to write the files to</param>
         /// <param name="form">Parent form of the ListView</param>
-        public static void LoadFilesToListview(string[] files, ListView listView, IWin32Window form)
+        /// <param name="clearItems">Defines if the existing list should been cleared, before new items will be added</param>
+        public static void LoadFilesToListview(string[] files, ListView listView, IWin32Window form, bool clearItems)
         {
             List<FileInfo> FileInfos = new List<FileInfo>();
             foreach (string FileItem in files)
             {
                 FileInfos.Add(new FileInfo(FileItem));
             }
-            LoadFilesToListview(FileInfos.ToArray(), listView, form);
+            LoadFilesToListview(FileInfos.ToArray(), listView, form, clearItems);
         }
         /// <summary>
         /// Write the defined Files to the file ListView
@@ -88,7 +89,8 @@ namespace OLKI.Programme.ReFiDa.src
         /// <param name="files">Files to write to ListView</param>
         /// <param name="listView">ListView to write the files to</param>
         /// <param name="form">Parent form of the ListView</param>
-        public static void LoadFilesToListview(FileInfo[] files, ListView listView, IWin32Window form)
+        /// <param name="clearItems">Defines if the existing list should been cleared, before new items will be added</param>
+        public static void LoadFilesToListview(FileInfo[] files, ListView listView, IWin32Window form, bool clearItems)
         {
             try
             {
@@ -96,13 +98,15 @@ namespace OLKI.Programme.ReFiDa.src
                 ((Form)form).Enabled = false;
                 Cursor.Current = Cursors.WaitCursor;
 
-                listView.Items.Clear();
+                if (clearItems) listView.Items.Clear();
                 listView.BeginUpdate();
                 ListViewItem ListViewItem;
                 RenameItem RenameItem;
 
                 foreach (FileInfo FileItem in files)
                 {
+                    if (!clearItems && FileIsInList(listView, FileItem)) continue;
+
                     RenameItem = new RenameItem(FileItem);
                     ListViewItem = new ListViewItem
                     {
@@ -125,6 +129,30 @@ namespace OLKI.Programme.ReFiDa.src
                 Cursor.Current = Cursors.Default;
                 ((Form)form).Enabled = true;
             }
+        }
+
+        /// <summary>
+        /// Check if the defined file ist already in list to rename
+        /// </summary>
+        /// <param name="listView">ListView to check for exisiting files</param>
+        /// <param name="fileToCheck">File to check if it is already in list</param>
+        /// <returns>True if the file is already in the list</returns>
+        private static bool FileIsInList(ListView listView, FileInfo fileToCheck)
+        {
+            RenameItem CheckItem;
+            foreach (ListViewItem ListViewItem in listView.Items)
+            {
+                try
+                {
+                    CheckItem = (RenameItem)ListViewItem.Tag;
+                    if (CheckItem.FileInfo.FullName == fileToCheck.FullName) return true;
+                }
+                catch (Exception ex)
+                {
+                    _ = ex;
+                }
+            }
+            return false;
         }
         #endregion
     }

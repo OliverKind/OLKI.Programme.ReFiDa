@@ -141,7 +141,7 @@ namespace OLKI.Programme.ReFiDa.src.Forms
             this.uscSearchDate_Changed(this, new EventArgs());
 
             this.lsvDateSearchFormats_SelectedIndexChanged(this, new EventArgs());
-            FileLoader.LoadFilesToListview(args, this.lsvFiles, this);
+            FileLoader.LoadFilesToListview(args, this.lsvFiles, this, true);
             this.lsvFiles_SelectedIndexChanged(this, new EventArgs());
             this.UpdateRenameItem();
             this.AutoInstantRename();
@@ -316,7 +316,7 @@ namespace OLKI.Programme.ReFiDa.src.Forms
 
         private void btnFileSourceDirectoryRefresh_Click(object sender, EventArgs e)
         {
-            FileLoader.LoadFilesToListview(FileLoader.GetFilesFromDirectory(this.txtFileSourceDirectoryPath.Text, this.chkFileSourceDirectorySub.Checked), this.lsvFiles, this);
+            FileLoader.LoadFilesToListview(FileLoader.GetFilesFromDirectory(this.txtFileSourceDirectoryPath.Text, this.chkFileSourceDirectorySub.Checked), this.lsvFiles, this, true);
             this.UpdateRenameItem();
             this.AutoInstantRename();
         }
@@ -364,7 +364,7 @@ namespace OLKI.Programme.ReFiDa.src.Forms
             {
                 FileInfo FileInfo = new FileInfo(OpenFileDialog.FileNames[0]);
                 this.txtFileSourceSelectPath.Text = FileInfo.DirectoryName;
-                FileLoader.LoadFilesToListview(OpenFileDialog.FileNames, this.lsvFiles, this);
+                FileLoader.LoadFilesToListview(OpenFileDialog.FileNames, this.lsvFiles, this, true);
                 this.UpdateRenameItem();
                 this.AutoInstantRename();
             }
@@ -447,7 +447,7 @@ namespace OLKI.Programme.ReFiDa.src.Forms
 
         private void lblFileSourceDragAndDrop_DragDrop(object sender, DragEventArgs e)
         {
-            FileLoader.LoadFilesToListview((string[])e.Data.GetData(DataFormats.FileDrop, false), this.lsvFiles, this);
+            FileLoader.LoadFilesToListview((string[])e.Data.GetData(DataFormats.FileDrop, false), this.lsvFiles, this, false);
             this.UpdateRenameItem();
             this.AutoInstantRename();
         }
