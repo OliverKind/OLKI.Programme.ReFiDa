@@ -1,4 +1,11 @@
 # ReFiDa - Reformating File names that contains a Date
+## [3.0.2.7] - 2024-04-10
+### Changed
+- Performance optimisation
+
+### Fixed
+- File list cleared if new files ware added using drag and drop
+
 ## [3.0.1.6] - 2023-12-30
 ### Changed
 - Code improvemend
