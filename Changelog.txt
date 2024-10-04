@@ -1,5 +1,9 @@
 # ReFiDa - Reformating File names that contains a Date
-## [3.0.2.7] - 2024-04-10
+## [3.0.3.8] - 2024-10-04
+### Changed
+- Performance and stability imporovement
+
+## [3.0.2.7]] - 2024-04-10
 ### Changed
 - Performance optimisation
 
