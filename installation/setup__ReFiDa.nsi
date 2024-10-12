@@ -1,4 +1,4 @@
-;NSIS Installer for ReFiDa 3.0.3.8
+;NSIS Installer for ReFiDa 3.0.4.9
 ;Using Modern Interface, Setup-Options, etc.
 ;Written by Oliver Kind
 
@@ -21,7 +21,7 @@
 ;Defining
 
   !define AppName          'ReFiDa'
-  !define Version          '3.0.3.8'
+  !define Version          '3.0.4.9'
   !define Company          'OLKI-Software'
   !define Comments         'Ein Programm Dateinamen um eine Datumsangabe zu ergänzen oder Dateinamen die Bereits ein Datum enthalten umzubenennen.'
   !define Copyright        '2023 - Oliver Kind'
@@ -130,6 +130,7 @@ Section ""
   File ".\..\bin\Release\Resources\ProgamIcons\program_symbol\Program_Symbol.ico"
   
   SetOutPath "$INSTDIR\Licenses"
+  File ".\..\bin\Release\Licenses\CC4.0-License.txt"
   File ".\..\bin\Release\Licenses\CPOL-License.txt"
   File ".\..\bin\Release\Licenses\LGPL-License.txt"
   File ".\..\bin\Release\Licenses\MIT-License (CroweMan; 22.06.2010).txt"

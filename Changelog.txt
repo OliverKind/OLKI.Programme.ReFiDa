@@ -1,4 +1,8 @@
 # ReFiDa - Reformating File names that contains a Date
+## [3.0.4.9] - 2024-10-12
+### Added
+- Missing Licence files
+
 ## [3.0.3.8] - 2024-10-04
 ### Changed
 - Performance and stability imporovement
