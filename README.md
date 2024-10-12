@@ -17,10 +17,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 You can download the source code or use a installer of the last release, if you only want to run the application. The inital autor will provide binaris of this work irregular at his homepage.
 
-> Download source code on [GitHub](https://github.com/OliverKind/OLKI.Programme.QuBC/archive/master.zip)
+> Download source code on [GitHub](https://github.com/OliverKind/OLKI.Programme.ReFiDa/archive/master.zip)
 > You also need to download the additional required repositories.
 
-> Download setup binary by inital autor [Oliver Kind](https://oliver-kind.de/index.php?NId=33)
+> Download setup binary by inital autor [Oliver Kind](https://oliver-kind.de/index.php?NId=58)
 
 ## Usage
 
@@ -35,7 +35,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on my code of conduct
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/OliverKind/OLKI.ProgrammeReFiDa/tags). 
+For the versions available, see the [tags on this repository](https://github.com/OliverKind/OLKI.Programme.ReFiDa/tags). 
 
 Versionnumber: a.b.c.d 
 
