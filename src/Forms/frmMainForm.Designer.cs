@@ -192,6 +192,7 @@
             this.cohFilesNewFilename,
             this.cohFilesDirectory,
             this.cohFilesNote});
+            this.lsvFiles.ColumnWidths = ((System.Collections.Generic.List<int>)(resources.GetObject("lsvFiles.ColumnWidths")));
             this.lsvFiles.FullRowSelect = true;
             this.lsvFiles.GridLines = true;
             this.lsvFiles.HideSelection = false;
@@ -235,11 +236,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExecutetConvert.Image = global::OLKI.Programme.ReFiDa.Properties.Resources.FilesRename;
             this.btnExecutetConvert.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExecutetConvert.Location = new System.Drawing.Point(264, 19);
+            this.btnExecutetConvert.Location = new System.Drawing.Point(268, 19);
             this.btnExecutetConvert.Name = "btnExecutetConvert";
-            this.btnExecutetConvert.Size = new System.Drawing.Size(478, 55);
+            this.btnExecutetConvert.Size = new System.Drawing.Size(474, 55);
             this.btnExecutetConvert.TabIndex = 1;
-            this.btnExecutetConvert.Text = "Ausgewählte Dateiein umbenennen";
+            this.btnExecutetConvert.Text = "Ausgewählte Dateien umbenennen";
             this.btnExecutetConvert.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnExecutetConvert.UseVisualStyleBackColor = true;
             this.btnExecutetConvert.Click += new System.EventHandler(this.btnExecutetConvert_Click);
@@ -288,9 +289,9 @@
             this.chkInstantRename.AutoSize = true;
             this.chkInstantRename.Location = new System.Drawing.Point(6, 19);
             this.chkInstantRename.Name = "chkInstantRename";
-            this.chkInstantRename.Size = new System.Drawing.Size(252, 17);
+            this.chkInstantRename.Size = new System.Drawing.Size(256, 17);
             this.chkInstantRename.TabIndex = 0;
-            this.chkInstantRename.Text = "Beim laden von Dateien sofort alle umbenennen";
+            this.chkInstantRename.Text = "Beim Laden von Dateien sofort alle umbenennen";
             this.chkInstantRename.UseVisualStyleBackColor = true;
             this.chkInstantRename.CheckedChanged += new System.EventHandler(this.chkInstantRename_CheckedChanged);
             // 
@@ -346,7 +347,7 @@
             this.grbPrepare.Size = new System.Drawing.Size(749, 198);
             this.grbPrepare.TabIndex = 0;
             this.grbPrepare.TabStop = false;
-            this.grbPrepare.Text = "Datein laden ";
+            this.grbPrepare.Text = "Dateien laden";
             // 
             // lblFormatOutlook
             // 
@@ -357,7 +358,7 @@
             this.lblFormatOutlook.Size = new System.Drawing.Size(182, 13);
             this.lblFormatOutlook.TabIndex = 3;
             this.lblFormatOutlook.TabStop = true;
-            this.lblFormatOutlook.Text = "Spezielle Foramte für Outlook E-Mails";
+            this.lblFormatOutlook.Text = "Spezielle Formate für Outlook E-Mails";
             this.lblFormatOutlook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFormatOutlook_LinkClicked);
             this.lblFormatOutlook.EnabledChanged += new System.EventHandler(this.lblFormatOutlook_EnabledChanged);
             // 
@@ -429,6 +430,7 @@
             this.lsvDateSearchFormats.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.lsvDateSearchFormats.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5});
+            this.lsvDateSearchFormats.ColumnWidths = ((System.Collections.Generic.List<int>)(resources.GetObject("lsvDateSearchFormats.ColumnWidths")));
             this.lsvDateSearchFormats.FullRowSelect = true;
             this.lsvDateSearchFormats.GridLines = true;
             this.lsvDateSearchFormats.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -610,7 +612,7 @@
             this.lblFileSourceDragAndDrop.Name = "lblFileSourceDragAndDrop";
             this.lblFileSourceDragAndDrop.Size = new System.Drawing.Size(723, 30);
             this.lblFileSourceDragAndDrop.TabIndex = 0;
-            this.lblFileSourceDragAndDrop.Text = "Dateien hier hin oder in die Dateiliste ziehen";
+            this.lblFileSourceDragAndDrop.Text = "Dateien hier hin oder in die Dateiliste ziehen.";
             this.lblFileSourceDragAndDrop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblFileSourceDragAndDrop.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblFileSourceDragAndDrop_DragDrop);
             this.lblFileSourceDragAndDrop.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblFileSourceDragAndDrop_DragEnter);

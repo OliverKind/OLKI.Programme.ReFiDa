@@ -52,7 +52,7 @@
             this.lblSenderAdress.Name = "lblSenderAdress";
             this.lblSenderAdress.Size = new System.Drawing.Size(244, 20);
             this.lblSenderAdress.TabIndex = 7;
-            this.lblSenderAdress.Text = "Abesnder: Komplett";
+            this.lblSenderAdress.Text = "Absender: Komplett";
             this.lblSenderAdress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblSenderUser
@@ -63,7 +63,7 @@
             this.lblSenderUser.Name = "lblSenderUser";
             this.lblSenderUser.Size = new System.Drawing.Size(244, 20);
             this.lblSenderUser.TabIndex = 4;
-            this.lblSenderUser.Text = "Abesnder: Alias";
+            this.lblSenderUser.Text = "Absender: Alias";
             this.lblSenderUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblSenderHost
@@ -74,7 +74,7 @@
             this.lblSenderHost.Name = "lblSenderHost";
             this.lblSenderHost.Size = new System.Drawing.Size(244, 20);
             this.lblSenderHost.TabIndex = 10;
-            this.lblSenderHost.Text = "Abesnder: Domain (Mit Top-Level-Domain)";
+            this.lblSenderHost.Text = "Absender: Domain (Mit Top-Level-Domain)";
             this.lblSenderHost.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // radSenderUserBefore
@@ -224,7 +224,7 @@
             this.Controls.Add(this.tabLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EMailForm";
-            this.Text = "E-Mail Eigenschaft dem Dateinamen hinzufügen";
+            this.Text = "E-Mail-Eigenschaft dem Dateinamen hinzufügen";
             this.tabLayoutPanel.ResumeLayout(false);
             this.tabLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

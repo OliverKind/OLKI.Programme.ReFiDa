@@ -61,7 +61,7 @@ namespace OLKI.Programme.ReFiDa.src {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Ordner mit Dateien zum umbennen auswählen. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Ordner mit Dateien zum Umbenennen auswählen. ähnelt.
         /// </summary>
         internal static string _0x0001 {
             get {
@@ -90,7 +90,7 @@ namespace OLKI.Programme.ReFiDa.src {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Umbennen! ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Fehler beim Umbenennen! ähnelt.
         /// </summary>
         internal static string _0x0003c {
             get {
@@ -99,7 +99,7 @@ namespace OLKI.Programme.ReFiDa.src {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Beim Umbennen der Dateien ist ein Fehler aufgetreten.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Beim Umbenennen der Dateien ist ein Fehler aufgetreten.
         ///
         ///{0} ähnelt.
         /// </summary>

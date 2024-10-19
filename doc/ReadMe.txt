@@ -1,5 +1,5 @@
 ReFiDa - Reformating File names that contains a Date
-************************^***************************
+****************************************************
 
 Copyright © 2023 OLKI - Oliver Kind
 Alle Rechte vorbehalten.

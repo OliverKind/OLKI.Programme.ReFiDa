@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="0x0001" xml:space="preserve">
-    <value>Ordner mit Dateien zum umbennen auswählen.</value>
+    <value>Ordner mit Dateien zum Umbenennen auswählen.</value>
   </data>
   <data name="0x0002c" xml:space="preserve">
     <value>Fehler beim Suchen!</value>
@@ -129,10 +129,10 @@
 {0}</value>
   </data>
   <data name="0x0003c" xml:space="preserve">
-    <value>Fehler beim Umbennen!</value>
+    <value>Fehler beim Umbenennen!</value>
   </data>
   <data name="0x0003m" xml:space="preserve">
-    <value>Beim Umbennen der Dateien ist ein Fehler aufgetreten.
+    <value>Beim Umbenennen der Dateien ist ein Fehler aufgetreten.
 
 {0}</value>
   </data>
