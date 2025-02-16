@@ -42,7 +42,7 @@
             this.txtSeperatorBefore.Location = new System.Drawing.Point(398, 0);
             this.txtSeperatorBefore.Name = "txtSeperatorBefore";
             this.txtSeperatorBefore.Size = new System.Drawing.Size(20, 20);
-            this.txtSeperatorBefore.TabIndex = 13;
+            this.txtSeperatorBefore.TabIndex = 3;
             this.txtSeperatorBefore.EnabledChanged += new System.EventHandler(this.txtSeperatorBefore_EnabledChanged);
             this.txtSeperatorBefore.TextChanged += new System.EventHandler(this.txtSeperatorBefore_TextChanged);
             // 
@@ -52,7 +52,7 @@
             this.txtSeperatorAfter.Location = new System.Drawing.Point(85, 0);
             this.txtSeperatorAfter.Name = "txtSeperatorAfter";
             this.txtSeperatorAfter.Size = new System.Drawing.Size(20, 20);
-            this.txtSeperatorAfter.TabIndex = 11;
+            this.txtSeperatorAfter.TabIndex = 1;
             this.txtSeperatorAfter.EnabledChanged += new System.EventHandler(this.txtSeperatorAfter_EnabledChanged);
             this.txtSeperatorAfter.TextChanged += new System.EventHandler(this.txtSeperatorAfter_TextChanged);
             // 
@@ -64,7 +64,7 @@
             this.radDateBefore.Location = new System.Drawing.Point(424, 3);
             this.radDateBefore.Name = "radDateBefore";
             this.radDateBefore.Size = new System.Drawing.Size(76, 17);
-            this.radDateBefore.TabIndex = 14;
+            this.radDateBefore.TabIndex = 4;
             this.radDateBefore.TabStop = true;
             this.radDateBefore.Text = "Dateiname";
             this.radDateBefore.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             this.radDateAfter.Location = new System.Drawing.Point(3, 3);
             this.radDateAfter.Name = "radDateAfter";
             this.radDateAfter.Size = new System.Drawing.Size(76, 17);
-            this.radDateAfter.TabIndex = 10;
+            this.radDateAfter.TabIndex = 0;
             this.radDateAfter.TabStop = true;
             this.radDateAfter.Text = "Dateiname";
             this.radDateAfter.UseVisualStyleBackColor = true;
@@ -90,7 +90,7 @@
             this.txtDateFormat.Location = new System.Drawing.Point(111, 0);
             this.txtDateFormat.Name = "txtDateFormat";
             this.txtDateFormat.Size = new System.Drawing.Size(281, 20);
-            this.txtDateFormat.TabIndex = 12;
+            this.txtDateFormat.TabIndex = 2;
             this.txtDateFormat.TextChanged += new System.EventHandler(this.txtDateFormat_TextChanged);
             // 
             // uscDateFormatEditor
