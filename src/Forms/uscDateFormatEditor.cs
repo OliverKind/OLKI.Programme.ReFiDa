@@ -172,6 +172,10 @@ namespace OLKI.Programme.ReFiDa.src.Forms
         {
             this.txtDateFormat.SelectionStart = this.txtDateFormat.SelectionStart;
             this.txtDateFormat.SelectionLength = 0;
+            this.txtSeperatorAfter.SelectionStart = this.txtSeperatorAfter.SelectionStart;
+            this.txtSeperatorAfter.SelectionLength = 0;
+            this.txtSeperatorBefore.SelectionStart = this.txtSeperatorBefore.SelectionStart;
+            this.txtSeperatorBefore.SelectionLength = 0;
         }
         #endregion
     }
