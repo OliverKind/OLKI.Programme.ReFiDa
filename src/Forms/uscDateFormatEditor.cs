@@ -111,6 +111,7 @@ namespace OLKI.Programme.ReFiDa.src.Forms
             set
             {
                 this._seperator = value;
+                this.txtSeperatorAfter.Text = value;
                 this.txtSeperatorBefore.Text = value;
                 this.Changed?.Invoke(this, new EventArgs());
             }
