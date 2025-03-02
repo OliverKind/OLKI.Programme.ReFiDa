@@ -1,4 +1,12 @@
 # ReFiDa - Reformating File names that contains a Date
+## [3.0.6.11] - 2025-03-02
+### Fixed
+- Seperator editor full select after edit
+- Seperator is not set to Editor, if Date is after Filename
+
+### Changed
+- Set to .NET Version 4.8.1
+
 ## [3.0.5.10] - 2024-10-19
 ### Fixed
 - Spelling
