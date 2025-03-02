@@ -355,10 +355,10 @@
             this.lblFormatOutlook.AutoSize = true;
             this.lblFormatOutlook.Location = new System.Drawing.Point(180, 111);
             this.lblFormatOutlook.Name = "lblFormatOutlook";
-            this.lblFormatOutlook.Size = new System.Drawing.Size(182, 13);
+            this.lblFormatOutlook.Size = new System.Drawing.Size(187, 13);
             this.lblFormatOutlook.TabIndex = 3;
             this.lblFormatOutlook.TabStop = true;
-            this.lblFormatOutlook.Text = "Spezielle Formate für Outlook E-Mails";
+            this.lblFormatOutlook.Text = "Spezielle Optionen für Outlook E-Mails";
             this.lblFormatOutlook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFormatOutlook_LinkClicked);
             this.lblFormatOutlook.EnabledChanged += new System.EventHandler(this.lblFormatOutlook_EnabledChanged);
             // 

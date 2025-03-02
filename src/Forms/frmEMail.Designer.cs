@@ -41,7 +41,9 @@
             this.radNoAdd = new System.Windows.Forms.RadioButton();
             this.lblAfterDate = new System.Windows.Forms.Label();
             this.lblBeforeDate = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabLayoutPanel.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSenderAdress
@@ -166,7 +168,7 @@
             this.tabLayoutPanel.Controls.Add(this.lblSenderUser, 1, 1);
             this.tabLayoutPanel.Controls.Add(this.lblSenderHost, 1, 3);
             this.tabLayoutPanel.Controls.Add(this.lblSenderAdress, 1, 2);
-            this.tabLayoutPanel.Location = new System.Drawing.Point(12, 12);
+            this.tabLayoutPanel.Location = new System.Drawing.Point(6, 19);
             this.tabLayoutPanel.Name = "tabLayoutPanel";
             this.tabLayoutPanel.RowCount = 4;
             this.tabLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
@@ -215,18 +217,29 @@
             this.lblBeforeDate.Text = "Vor Datum";
             this.lblBeforeDate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.tabLayoutPanel);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(418, 110);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "E-Mail-Eigenschaft dem Dateinamen hinzufügen";
+            // 
             // EMailForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(424, 109);
-            this.Controls.Add(this.tabLayoutPanel);
+            this.ClientSize = new System.Drawing.Size(442, 134);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "EMailForm";
-            this.Text = "E-Mail-Eigenschaft dem Dateinamen hinzufügen";
+            this.Text = "Spezielle Optionen für Outlook E-Mails";
             this.tabLayoutPanel.ResumeLayout(false);
             this.tabLayoutPanel.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -246,5 +259,6 @@
         private System.Windows.Forms.Label lblBeforeDate;
         private System.Windows.Forms.Label lblAfterDate;
         private System.Windows.Forms.RadioButton radNoAdd;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
