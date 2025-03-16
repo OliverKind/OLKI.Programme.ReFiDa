@@ -320,11 +320,11 @@ namespace OLKI.Programme.ReFiDa.src
 
         #region Methodes
         /// <summary>
-        /// Inital a new DateFormatProvider with no AutoUpdate and defaukt format settings
+        /// Inital a new DateFormatProvider with no AutoUpdate and default format settings
         /// </summary>
         public DateFormatProvider() : this(false) { }
         /// <summary>
-        /// Inital a new DateFormatProvider with defaukt format settings
+        /// Inital a new DateFormatProvider with default format settings
         /// </summary>
         /// <param name="autoUpdateLengthList">Set if the FormatLength should been automaticly updated if the format settings where changed</param>
         public DateFormatProvider(bool autoUpdateLengthList) : this(autoUpdateLengthList, string.Empty) { }
@@ -332,7 +332,7 @@ namespace OLKI.Programme.ReFiDa.src
         /// Inital a new DateFormatProvider
         /// </summary>
         /// <param name="autoUpdateLengthList">Set if the FormatLength should been automaticly updated if the format settings where changed</param>
-        /// <param name="jsonEncode">JSON-Encode of the format settings, will be saved to the sttings</param>
+        /// <param name="jsonEncode">JSON-Encode of the format settings, will be saved to the settings</param>
         public DateFormatProvider(bool autoUpdateLengthList, string jsonEncode)
         {
             this.Format = new Settings();
@@ -390,12 +390,16 @@ namespace OLKI.Programme.ReFiDa.src
             this.FormatLength = FormatLengthList.ToArray();
         }
 
+        /// <summary>
+        /// Set new Preview and Update Format Length List if required
+        /// </summary>
+        /// <param name="sender">Sender of changed event</param>
+        /// <param name="e">EventArgs of changed event</param>
         private void Settings_Changed(object sender, EventArgs e)
         {
             this.Preview = new Previews(this.Format);
             if (this.AutoUpdateLengthList) this.UpdateFormatLengthList();
         }
-
         #endregion
     }
 }
