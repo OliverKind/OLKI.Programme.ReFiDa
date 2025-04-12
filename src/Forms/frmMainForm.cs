@@ -476,6 +476,7 @@ namespace OLKI.Programme.ReFiDa.src.Forms
 
         private void lsvFilesPreview_KeyDown(object sender, KeyEventArgs e)
         {
+            // Deselect all items
             if (e.KeyCode == Keys.A && e.Control && e.Shift)
             {
                 this.lsvFiles.MultiSelect = true;
@@ -484,6 +485,7 @@ namespace OLKI.Programme.ReFiDa.src.Forms
                     item.Selected = false;
                 }
             }
+            // Select all items
             else if (e.KeyCode == Keys.A && e.Control)
             {
                 this.lsvFiles.MultiSelect = true;
