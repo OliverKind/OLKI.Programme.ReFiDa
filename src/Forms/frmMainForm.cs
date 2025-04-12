@@ -479,7 +479,6 @@ namespace OLKI.Programme.ReFiDa.src.Forms
             // Deselect all items
             if (e.KeyCode == Keys.A && e.Control && e.Shift)
             {
-                this.lsvFiles.MultiSelect = true;
                 foreach (ListViewItem item in this.lsvFiles.Items)
                 {
                     item.Selected = false;
@@ -488,7 +487,6 @@ namespace OLKI.Programme.ReFiDa.src.Forms
             // Select all items
             else if (e.KeyCode == Keys.A && e.Control)
             {
-                this.lsvFiles.MultiSelect = true;
                 foreach (ListViewItem item in this.lsvFiles.Items)
                 {
                     item.Selected = true;
