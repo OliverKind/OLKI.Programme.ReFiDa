@@ -492,6 +492,14 @@ namespace OLKI.Programme.ReFiDa.src.Forms
                     item.Selected = true;
                 }
             }
+            // Remove all selectes items
+            else if (e.KeyCode == Keys.Delete)
+            {
+                foreach (ListViewItem item in this.lsvFiles.Items)
+                {
+                    if (item.Selected == true) item.Remove();
+                }
+            }
         }
 
         private void lsvDateSearchFormats_ItemDrag(object sender, ItemDragEventArgs e)
