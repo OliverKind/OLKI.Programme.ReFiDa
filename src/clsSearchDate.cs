@@ -24,12 +24,16 @@
 
 
 using OLKI.Programme.ReFiDa.Properties;
+using static OLKI.Programme.ReFiDa.src.DateFormatProvider;
 using Outlook = Microsoft.Office.Interop.Outlook;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
-using static OLKI.Programme.ReFiDa.src.DateFormatProvider;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace OLKI.Programme.ReFiDa.src
 {
@@ -48,6 +52,10 @@ namespace OLKI.Programme.ReFiDa.src
         /// Posible date formats to finde a Date sinside a EML-File
         /// </summary>
         private static readonly List<string> EML_TIME_FORMAT = new List<string> { "ddd, d MMM yyyy HH:mm:ss zzz", "ddd, dd MMM yyyy HH:mm:ss zzz", "dd MMM yyyy HH:mm:ss zzz", "d MMM yyyy HH:mm:ss zzz" };
+        /// <summary>
+        /// Exif-Tag for Creation Date of an Image (PropertyTagExifDTOrig)
+        /// </summary>
+        private const int EXIF_DTORIG_TAG_ID = 0x9003;
         #endregion
 
         #region Enums
@@ -64,6 +72,13 @@ namespace OLKI.Programme.ReFiDa.src
             SenderHostBefore = 30,
             SenderHostAfter = 31
         }
+        #endregion
+
+        #region Fields
+        /// <summary>
+        /// Regex to replace ":" in the date string
+        /// </summary>
+        private static readonly Regex RegReplacer = new Regex(":");
         #endregion
 
         #region Methodes
@@ -373,6 +388,40 @@ namespace OLKI.Programme.ReFiDa.src
                     return fileInfoReamed != null;
                 }
                 return false;
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+                fileInfoReamed = null;
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Get the new filrename, with date from the EXIF-Creationdate  of an image file
+        /// </summary>
+        /// <param name="fileInfo">Original file</param>
+        /// <param name="filePureName">Filename without extension</param>
+        /// <param name="fileInfoReamed">Renamed file</param>
+        /// <param name="targetDateFormat">Format of the target date</param>
+        /// <param name="exception">Exception while getting the new Filename</param>
+        /// <returns>True if the new Filename was sucessfully created</returns>
+        public static bool GetFromExifCreationDate(FileInfo fileInfo, string filePureName, out FileInfo fileInfoReamed, DateFormatProvider targetDateFormat, out Exception exception)
+        {
+            try
+            {
+                DateTime ExifDate;
+                FileStream fs = new FileStream(fileInfo.FullName, FileMode.Open, FileAccess.Read);
+                using (Image myImage = Image.FromStream(fs, false, false))
+                {
+                    PropertyItem propItem = myImage.GetPropertyItem(EXIF_DTORIG_TAG_ID);
+                    ExifDate = DateTime.Parse(RegReplacer.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2));
+
+                }
+                _ = ExifDate;
+
+                fileInfoReamed = CreateNewFileInfo(fileInfo, filePureName, ExifDate, targetDateFormat, out exception);
+                return fileInfoReamed != null;
             }
             catch (Exception ex)
             {

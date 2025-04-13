@@ -497,7 +497,8 @@
             "Dateieigenschaft - Datei erstellt",
             "Dateiname - Datum am Anfang oder Ende",
             "E-Mail Outlook (*.msg) - Empfangen",
-            "E-Mail Thunderbird (*.eml) - Empfangen"});
+            "E-Mail Thunderbird (*.eml) - Empfangen",
+            "EXIF-Aufnahmedatum"});
             this.cboDateSource.Location = new System.Drawing.Point(114, 87);
             this.cboDateSource.Name = "cboDateSource";
             this.cboDateSource.Size = new System.Drawing.Size(248, 21);

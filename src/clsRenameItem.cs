@@ -61,7 +61,11 @@ namespace OLKI.Programme.ReFiDa.src
             /// <summary>
             /// Use the recived Date of an Thunderbird E-Mail file
             /// </summary>
-            EMailThunderbird
+            EMailThunderbird,
+            /// <summary>
+            /// Use the EXIF-Creationdate of an image file
+            /// </summary>
+            ExifCreationDate
         }
 
         /// <summary>
@@ -248,6 +252,10 @@ namespace OLKI.Programme.ReFiDa.src
                         break;
                     case DateSearchMode.EMailThunderbird:
                         GetDateResult = SearchDate.GetFromEmlFile(this.FileInfo, this.FilePureName, out FileInfoReamed, targetDateFormat, out Exception);
+                        this.State = this.UpdateState(GetDateResult, Exception);
+                        break;
+                    case DateSearchMode.ExifCreationDate:
+                        GetDateResult = SearchDate.GetFromExifCreationDate(this.FileInfo, this.FilePureName, out FileInfoReamed, targetDateFormat, out Exception);
                         this.State = this.UpdateState(GetDateResult, Exception);
                         break;
                     default:
