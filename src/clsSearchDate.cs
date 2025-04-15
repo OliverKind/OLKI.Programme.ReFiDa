@@ -398,7 +398,7 @@ namespace OLKI.Programme.ReFiDa.src
         }
 
         /// <summary>
-        /// Get the new filrename, with date from the EXIF-Creationdate  of an image file
+        /// Get the new filrename, with date from the EXIF-Creationdate of an image file
         /// </summary>
         /// <param name="fileInfo">Original file</param>
         /// <param name="filePureName">Filename without extension</param>
@@ -418,7 +418,6 @@ namespace OLKI.Programme.ReFiDa.src
                     ExifDate = DateTime.Parse(RegReplacer.Replace(Encoding.UTF8.GetString(propItem.Value), "-", 2));
 
                 }
-                _ = ExifDate;
 
                 fileInfoReamed = CreateNewFileInfo(fileInfo, filePureName, ExifDate, targetDateFormat, out exception);
                 return fileInfoReamed != null;
