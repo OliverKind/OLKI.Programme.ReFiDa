@@ -23,11 +23,11 @@
  * */
 
 using OLKI.Programme.ReFiDa.Properties;
+using static OLKI.Programme.ReFiDa.src.DateFormatProvider;
 using System;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
-using static OLKI.Programme.ReFiDa.src.DateFormatProvider;
 
 namespace OLKI.Programme.ReFiDa.src
 {
