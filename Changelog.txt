@@ -1,8 +1,12 @@
 # ReFiDa - Reformating File names that contains a Date
+## [3.1.1.13] - 2025-05-09
+### Fixed
+- Design error
+
 ## [3.1.0.12] - 2025-04-15
 ### Added
 - Reading Date from image EXIF data
-- Remove selected files from file list
+- Remove selected files from file list by pressing DEL
 
 ## [3.0.6.11] - 2025-03-02
 ### Fixed
