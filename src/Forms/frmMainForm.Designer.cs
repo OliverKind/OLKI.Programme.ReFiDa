@@ -52,8 +52,10 @@
             this.grbPrepare = new System.Windows.Forms.GroupBox();
             this.lblFormatOutlook = new System.Windows.Forms.LinkLabel();
             this.lblFormatHelp = new System.Windows.Forms.LinkLabel();
+            this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.txtFilenamePreview = new System.Windows.Forms.TextBox();
             this.grbDateSearchFormats = new System.Windows.Forms.GroupBox();
+            this.uscSearchDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.lsvDateSearchFormats = new OLKI.Toolbox.Widgets.SortListView();
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnDateSearchFormaRemove = new System.Windows.Forms.Button();
@@ -69,8 +71,6 @@
             this.btnFileSourceDirectoryRefresh = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.lblFileSourceDragAndDrop = new System.Windows.Forms.Label();
-            this.uscNewDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
-            this.uscSearchDate = new OLKI.Programme.ReFiDa.src.Forms.uscDateFormatEditor();
             this.grbFiles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudShortenFilenamesLimit)).BeginInit();
             this.grbExecute.SuspendLayout();
@@ -111,6 +111,7 @@
             // 
             // nudShortenFilenamesLimit
             // 
+            this.nudShortenFilenamesLimit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.nudShortenFilenamesLimit.Location = new System.Drawing.Point(519, 24);
             this.nudShortenFilenamesLimit.Maximum = new decimal(new int[] {
             32767,
@@ -374,6 +375,19 @@
             this.lblFormatHelp.Text = "Hilfe zur Formatierung";
             this.lblFormatHelp.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblFormatHelp_LinkClicked);
             // 
+            // uscNewDate
+            // 
+            this.uscNewDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.uscNewDate.DateFormat = null;
+            this.uscNewDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
+            this.uscNewDate.Location = new System.Drawing.Point(6, 146);
+            this.uscNewDate.Name = "uscNewDate";
+            this.uscNewDate.Seperator = null;
+            this.uscNewDate.Size = new System.Drawing.Size(356, 20);
+            this.uscNewDate.TabIndex = 6;
+            this.uscNewDate.Changed += new System.EventHandler(this.uscNewDate_Changed);
+            // 
             // txtFilenamePreview
             // 
             this.txtFilenamePreview.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -398,6 +412,17 @@
             this.grbDateSearchFormats.TabStop = false;
             this.grbDateSearchFormats.Text = "Suchmuster und Suchreihenfolge";
             this.grbDateSearchFormats.EnabledChanged += new System.EventHandler(this.grbDateSearchFormats_EnabledChanged);
+            // 
+            // uscSearchDate
+            // 
+            this.uscSearchDate.DateFormat = null;
+            this.uscSearchDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
+            this.uscSearchDate.Location = new System.Drawing.Point(6, 81);
+            this.uscSearchDate.Name = "uscSearchDate";
+            this.uscSearchDate.Seperator = null;
+            this.uscSearchDate.Size = new System.Drawing.Size(363, 20);
+            this.uscSearchDate.TabIndex = 3;
+            this.uscSearchDate.Changed += new System.EventHandler(this.uscSearchDate_Changed);
             // 
             // lsvDateSearchFormats
             // 
@@ -593,30 +618,6 @@
             this.lblFileSourceDragAndDrop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblFileSourceDragAndDrop.DragDrop += new System.Windows.Forms.DragEventHandler(this.lblFileSourceDragAndDrop_DragDrop);
             this.lblFileSourceDragAndDrop.DragEnter += new System.Windows.Forms.DragEventHandler(this.lblFileSourceDragAndDrop_DragEnter);
-            // 
-            // uscNewDate
-            // 
-            this.uscNewDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.uscNewDate.DateFormat = null;
-            this.uscNewDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
-            this.uscNewDate.Location = new System.Drawing.Point(6, 146);
-            this.uscNewDate.Name = "uscNewDate";
-            this.uscNewDate.Seperator = null;
-            this.uscNewDate.Size = new System.Drawing.Size(356, 20);
-            this.uscNewDate.TabIndex = 6;
-            this.uscNewDate.Changed += new System.EventHandler(this.uscNewDate_Changed);
-            // 
-            // uscSearchDate
-            // 
-            this.uscSearchDate.DateFormat = null;
-            this.uscSearchDate.DatePosition = OLKI.Programme.ReFiDa.src.DateFormatProvider.DatePositionIndicator.AfterFilename;
-            this.uscSearchDate.Location = new System.Drawing.Point(6, 81);
-            this.uscSearchDate.Name = "uscSearchDate";
-            this.uscSearchDate.Seperator = null;
-            this.uscSearchDate.Size = new System.Drawing.Size(363, 20);
-            this.uscSearchDate.TabIndex = 3;
-            this.uscSearchDate.Changed += new System.EventHandler(this.uscSearchDate_Changed);
             // 
             // MainForm
             // 
